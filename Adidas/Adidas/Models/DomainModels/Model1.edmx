@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AdidasTehranModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="JobRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Company" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Duration" Type="nvarchar(max)" />
+          <Property Name="Disconnection" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="50" />
+          <Property Name="Person_FK" Type="int" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Father" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDay" Type="datetime" />
+          <Property Name="Gender" Type="bit" />
+          <Property Name="MilitaryService" Type="tinyint" />
+          <Property Name="Marriage" Type="bit" />
+          <Property Name="Children" Type="tinyint" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address" Type="text" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
+          <Property Name="Degree" Type="tinyint" />
+          <Property Name="Institute" Type="nvarchar" MaxLength="50" />
+          <Property Name="Field" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnglishKnowledge" Type="tinyint" />
+          <Property Name="Excel" Type="bit" />
+          <Property Name="Word" Type="bit" />
+          <Property Name="Outlook" Type="bit" />
+          <Property Name="PowerPoint" Type="bit" />
+          <Property Name="Accounting" Type="bit" />
+          <Property Name="OtherSoftwer" Type="text" />
+          <Property Name="Skills" Type="text" />
+          <Property Name="SalaryExpection" Type="nchar" MaxLength="10" />
+          <Property Name="JobStatus" Type="bit" />
+          <Property Name="DaysNumber" Type="tinyint" />
+          <Property Name="WorkingGuranty" Type="bit" />
+          <Property Name="Duration" Type="nchar" MaxLength="10" />
+          <Property Name="GurantyPayment" Type="bit" />
+          <Property Name="image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="RelationShip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Relational" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tell" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="AdidasTehranModelStoreContainer">
+          <EntitySet Name="JobRecords" EntityType="Self.JobRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RelationShip" EntityType="Self.RelationShip" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AdidasTehranModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="JobRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Disconnection" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Person_FK" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Father" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDay" Type="DateTime" Precision="3" />
+          <Property Name="MilitaryService" Type="Byte" />
+          <Property Name="Marriage" Type="Boolean" />
+          <Property Name="Children" Type="Byte" />
+          <Property Name="NationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tell" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Degree" Type="Byte" />
+          <Property Name="Institute" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Field" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnglishKnowledge" Type="Byte" />
+          <Property Name="Excel" Type="Boolean" />
+          <Property Name="Word" Type="Boolean" />
+          <Property Name="Outlook" Type="Boolean" />
+          <Property Name="PowerPoint" Type="Boolean" />
+          <Property Name="Accounting" Type="Boolean" />
+          <Property Name="OtherSoftwer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryExpection" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="JobStatus" Type="Boolean" />
+          <Property Name="DaysNumber" Type="Byte" />
+          <Property Name="WorkingGuranty" Type="Boolean" />
+          <Property Name="Duration" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GurantyPayment" Type="Boolean" />
+          <Property Name="Gender" Type="Boolean" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="RelationShip">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Relational" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="AdidasTehranEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="JobRecords" EntityType="Self.JobRecord" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="RelationShips" EntityType="Self.RelationShip" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AdidasTehranModelStoreContainer" CdmEntityContainer="AdidasTehranEntities">
+          <EntitySetMapping Name="JobRecords">
+            <EntityTypeMapping TypeName="AdidasTehranModel.JobRecord">
+              <MappingFragment StoreEntitySet="JobRecords">
+                <ScalarProperty Name="Person_FK" ColumnName="Person_FK" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Disconnection" ColumnName="Disconnection" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="AdidasTehranModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Father" ColumnName="Father" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="MilitaryService" ColumnName="MilitaryService" />
+                <ScalarProperty Name="Marriage" ColumnName="Marriage" />
+                <ScalarProperty Name="Children" ColumnName="Children" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="Institute" ColumnName="Institute" />
+                <ScalarProperty Name="Field" ColumnName="Field" />
+                <ScalarProperty Name="EnglishKnowledge" ColumnName="EnglishKnowledge" />
+                <ScalarProperty Name="Excel" ColumnName="Excel" />
+                <ScalarProperty Name="Word" ColumnName="Word" />
+                <ScalarProperty Name="Outlook" ColumnName="Outlook" />
+                <ScalarProperty Name="PowerPoint" ColumnName="PowerPoint" />
+                <ScalarProperty Name="Accounting" ColumnName="Accounting" />
+                <ScalarProperty Name="OtherSoftwer" ColumnName="OtherSoftwer" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="SalaryExpection" ColumnName="SalaryExpection" />
+                <ScalarProperty Name="JobStatus" ColumnName="JobStatus" />
+                <ScalarProperty Name="DaysNumber" ColumnName="DaysNumber" />
+                <ScalarProperty Name="WorkingGuranty" ColumnName="WorkingGuranty" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="GurantyPayment" ColumnName="GurantyPayment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RelationShips">
+            <EntityTypeMapping TypeName="AdidasTehranModel.RelationShip">
+              <MappingFragment StoreEntitySet="RelationShip">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Relational" ColumnName="Relational" />
+                <ScalarProperty Name="Tell" ColumnName="Tell" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
