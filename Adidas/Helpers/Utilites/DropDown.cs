@@ -18,4 +18,29 @@ using System.Web.Mvc;
             };
             return items;
         }
-    }
+
+        public static IEnumerable<SelectListItem> GetDegreeList()
+        {
+            List<SelectListItem> items = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "دیپلم", Value = "1"},
+                new SelectListItem{Text = "کاردانی", Value = "2"},
+                new SelectListItem{Text = "کارشناسی", Value = "3"},
+                new SelectListItem{Text = "کارشناسی ارشد", Value = "4"},
+                new SelectListItem{Text = "در حین تحصیل", Value = "5"}
+              };
+            return items;
+        }
+
+        public static IEnumerable<SelectListItem> GetKnowledgeList()
+        {
+            List<SelectListItem> items = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "ابتدایی", Value = "1"},
+                new SelectListItem{Text = "متوسط", Value = "2"},
+                new SelectListItem{Text = "خوب", Value = "3"}
+              
+            };
+            return items;
+        }
+}
