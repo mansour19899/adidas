@@ -13,6 +13,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
 </head>
 <body class="container-fluid">
     <nav class="navbar navbar-default">
@@ -56,21 +57,202 @@
             </div>
         </div>
     </nav>
-   <div class="row text-center"><h1>فرم استخدام</h1></div>
-<div style="padding: 50px;">
-    <div class="group">
-        <label class="label">نام و نام خانوادگی <span>*</span></label>
-        @Html.LabelFor(p=>p.Person.Name)
-        <div class="controls">
-            	
-            @Html.Display("StudentName")
-            @Html.TextBoxFor(p => p.Person.Name, new {@class = "form-control"})
-            
-            @Html.RadioButtonFor(m => m.Person.Marriage,"Male")
-            @Html.RadioButtonFor(m => m.Person.Marriage,"Female")
-        </div>
-    </div>
+    <div class="row text-center"><h1>فرم استخدام</h1></div>
+<div style="padding-top: 50px; padding-left: 20px; padding-right: 20px;">
 
+    @using (Ajax.BeginForm("Register", "Home", new AjaxOptions {HttpMethod = "Post", Url = "/Home/Register"}))
+    {
+        <div class=" row">
+            <div class="col-md-2">
+                <div class="_group row">
+                    <div class=" col-md-3 text-right _label ">
+                        @Html.LabelFor(p => p.Person.Name)<span>*</span>
+                    </div>
+                    <div class=" col-md-9">
+
+                        @Html.TextBoxFor(p => p.Person.Name, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="_group row">
+                    <div class=" col-md-4 text-right _label">
+                        @Html.LabelFor(p => p.Person.LastName)<span>*</span>
+                    </div>
+                    <div class=" col-md-8">
+
+                        @Html.TextBoxFor(p => p.Person.LastName, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="_group row">
+                    <div class=" col-md-4 text-right _label">
+                        @Html.LabelFor(p => p.Person.Father)<span>*</span>
+                    </div>
+                    <div class=" col-md-8">
+
+                        @Html.TextBoxFor(p => p.Person.Father, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="_group row">
+                    <div class=" col-md-3 text-right _label">
+                        @Html.LabelFor(p => p.Person.BirthDay)<span>*</span>
+                    </div>
+                    <div class=" col-md-9">
+
+                        @Html.DropDownListFor(p => p.Date.Day, new SelectList(ViewBag.Day), new { @class = " _date form-control " })
+                        @Html.DropDownListFor(p => p.Date.Month, new SelectList(ViewBag.Month), new { @class = " _date form-control " })
+                        @Html.DropDownListFor(p => p.Date.Year, new SelectList(ViewBag.Year), new { @class = " _date form-control " })
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <div class="_group row">
+                    <div class=" col-md-5 text-right _label ">
+                        @Html.LabelFor(p => p.Person.Gender)<span>*</span>
+                    </div>
+                    <div class=" col-md-7">
+                        @Html.Label("مرد", new {@class = "_label"})
+                        @Html.RadioButtonFor(m => m.Person.Gender, true)
+                        @Html.Label("زن", new {@class = "_label", style = "  margin-right: 30px;"})
+                        @Html.RadioButtonFor(m => m.Person.Gender, false)
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="_group row">
+                    <div class=" col-md-5 text-right _label">
+                        @Html.LabelFor(p => p.Person.MilitaryService)<span>*</span>
+                    </div>
+                    <div class=" col-md-7">
+
+
+                        @Html.DropDownListFor(p => p.Person.MilitaryService, DropDown.GetMilitaryList(), new {@class = "form-control _dropdown" })
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="_group row">
+                    <div class=" col-md-5 text-right _label ">
+                        @Html.LabelFor(p => p.Person.Marriage)<span>*</span>
+                    </div>
+                    <div class=" col-md-7">
+                        @Html.Label("مجرد", new {@class = "_label"})
+                        @Html.RadioButtonFor(m => m.Person.Marriage, true)
+                        @Html.Label("متاهل", new {@class = "_label", style = "  margin-right: 30px;"})
+                        @Html.RadioButtonFor(m => m.Person.Marriage, false)
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="_group row">
+                    <div class=" col-md-3 text-right _label">
+                        @Html.LabelFor(p => p.Person.Children)
+                    </div>
+                    <div class=" col-md-3">
+
+                        @Html.TextBoxFor(p => p.Person.Children, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            
+            <div class="col-md-2">
+                <div class="_group row">
+                    <div class=" col-md-4 text-right _label">
+                        @Html.LabelFor(p => p.Person.NationalCode)
+                    </div>
+                    <div class=" col-md-8">
+
+                        @Html.TextBoxFor(p => p.Person.NationalCode, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <div class="_group row">
+                    <div class=" col-md-4 text-right _label">
+                        @Html.LabelFor(p => p.Person.Mobile)<span>*</span>
+                    </div>
+                    <div class=" col-md-8">
+
+                        @Html.TextBoxFor(p => p.Person.Mobile, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <div class="_group row">
+                    <div class=" col-md-4 text-right _label">
+                        @Html.LabelFor(p => p.Person.Tell)<span>*</span>
+                    </div>
+                    <div class=" col-md-8">
+
+                        @Html.TextBoxFor(p => p.Person.Tell, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="_group row">
+                    <div class=" col-md-4 text-right _label">
+                        @Html.LabelFor(p => p.Person.Email)<span>*</span>
+                    </div>
+                    <div class=" col-md-8">
+
+                        @Html.TextBoxFor(p => p.Person.Email, new {@class = "form-control"})
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="_group row">
+                    <div class=" col-md-1 text-right _label">
+                        @Html.LabelFor(p => p.Person.Address)<span>*</span>
+                    </div>
+                    <div class=" col-md-11">
+
+                        @Html.TextBoxFor(p => p.Person.Address, new {@class = "form-control",style= " max-width: 1500px;" })
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-primary"/>
+    }
 </div>
 
 
@@ -83,6 +265,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
-
+    @Scripts.Render("~/bundles/jqueryajax")
 </body>
 </html>

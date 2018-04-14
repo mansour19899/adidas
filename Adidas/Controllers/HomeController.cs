@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Adidas.Models.EntityModels;
 using Adidas.ViewModels;
 
 namespace Adidas.Controllers
@@ -28,11 +29,26 @@ namespace Adidas.Controllers
 
             return View();
         }
+
+        [HttpGet]
         public ActionResult Register()
         {
-            ViewBag.Message = "Your contact page.";
+          DateOfBirth date= new DateOfBirth();
+            ViewBag.Day = date.DayList;
+            ViewBag.Month = date.MonthList;
+            ViewBag.Year = date.YearList;
+
+            
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Register(PersonInfo per)
+        {
+        
+            return View();
+        }
+
+       
     }
 }
