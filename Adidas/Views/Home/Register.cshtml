@@ -71,103 +71,159 @@
                 <h1 class="panel-title">اطلاعات فردی</h1>
             </div>
             <div class="panel-body">
-                <div class=" row">
-                    <div class="col-md-2">
+                <div class="row visible-lg">
+                    <div class="col-md-3">
                         <div class="_group row">
-                            <div class=" col-md-3 text-left _label ">
+                         
+                            <div class=" col-md-9   _label ">
                                 @Html.LabelFor(p => p.Person.Name)<span>*</span>
-                            </div>
-                            <div class=" col-md-9">
-
                                 @Html.TextBoxFor(p => p.Person.Name, new { @class = "form-control" })
-
                             </div>
+                      
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="_group row">
-                            <div class=" col-md-4 text-left _label">
+                            <div class=" col-md-12   _label ">
                                 @Html.LabelFor(p => p.Person.LastName)<span>*</span>
-                            </div>
-                            <div class=" col-md-8">
-
-                                @Html.TextBoxFor(p => p.Person.LastName, new { @class = "form-control" })
-
+                                @Html.TextBoxFor(p => p.Person.LastName, new { @class = "form-control",style= "width: 70%;" })
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3 ">
                         <div class="_group row">
-                            <div class=" col-md-4 text-left _label">
+                            <div class=" col-md-12   _label ">
                                 @Html.LabelFor(p => p.Person.Father)<span>*</span>
-                            </div>
-                            <div class=" col-md-8">
-
-                                @Html.TextBoxFor(p => p.Person.Father, new { @class = "form-control" })
-
+                                @Html.TextBoxFor(p => p.Person.Father, new { @class = "form-control",style= "width: 40%;" })
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-3">
                         <div class="_group row">
-                            <div class=" col-md-3 text-left _label">
-                                @Html.LabelFor(p => p.Person.BirthDay)<span>*</span>
+                            <div class=" col-md-2 text-left _label">
+                                @Html.LabelFor(p => p.Person.NationalCode)
                             </div>
-                            <div class=" col-md-9">
+                            <div class=" col-md-8">
 
-                                @Html.DropDownListFor(p => p.Date.Day, new SelectList(ViewBag.Day), new { @class = " _date form-control " })
-                                @Html.DropDownListFor(p => p.Date.Month, new SelectList(ViewBag.Month), new { @class = " _date form-control " })
-                                @Html.DropDownListFor(p => p.Date.Year, new SelectList(ViewBag.Year), new { @class = " _date form-control " })
-
+                                @Html.TextBoxFor(p => p.Person.NationalCode, new {@class = "form-control"})
 
                             </div>
-
                         </div>
                     </div>
                 </div>
+                
+            <div class="row hidden-lg">
+                <div class="col-md-4">
+                    <div class="_group row">
+                         
+                        <div class=" col-md-9   _label ">
+                            @Html.LabelFor(p => p.Person.Name)<span>*</span>
+                            @Html.TextBoxFor(p => p.Person.Name, new { @class = "form-control" })
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="_group row">
+                        <div class=" col-md-12   _label ">
+                            @Html.LabelFor(p => p.Person.LastName)<span>*</span>
+                            @Html.TextBoxFor(p => p.Person.LastName, new { @class = "form-control",style= "width: 70%;" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                    <div class="_group row">
+                        <div class=" col-md-12   _label ">
+                            @Html.LabelFor(p => p.Person.Father)<span>*</span>
+                            @Html.TextBoxFor(p => p.Person.Father, new { @class = "form-control",style= "width: 40%;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="row">
-                    <div class="col-md-2">
+                <div class=" row">
+                    <div class="col-md-4">
                         <div class="_group row">
-                            <div class=" col-md-5 text-left _label ">
-                                @Html.LabelFor(p => p.Person.Gender)<span>*</span>
+                            <div class=" col-md-2 text-left _label">
+                                @Html.LabelFor(p => p.Person.NationalCode)
+                            </div>
+                            <div class=" col-md-8">
+
+                                @Html.TextBoxFor(p => p.Person.NationalCode, new {@class = "form-control"})
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="_group row">
+                            <div class=" col-md-3 text-left _label">
+                                @Html.LabelFor(p => p.Person.BirthDay)
+                            </div>
+                            <div class=" col-md-9">
+
+                                @Html.DropDownListFor(p => p.Date.Day, new SelectList(ViewBag.Day), new {@class = " _date form-control "})
+                                @Html.DropDownListFor(p => p.Date.Month, new SelectList(ViewBag.Month), new {@class = " _date form-control "})
+                                @Html.DropDownListFor(p => p.Date.Year, new SelectList(ViewBag.Year), new {@class = " _date form-control "})
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="_group row">
+                            <div class=" col-md-3 text-left _label ">
+                                @Html.LabelFor(p => p.Person.Gender)
                             </div>
                             <div class=" col-md-7">
-                                @Html.Label("مرد", new { @class = "_label" })
+                                @Html.Label("مرد", new {@class = "_label"})
                                 @Html.RadioButtonFor(m => m.Person.Gender, true)
-                                @Html.Label("زن", new { @class = "_label", style = "  margin-right: 30px;" })
+                                @Html.Label("زن", new {@class = "_label", style = "  margin-right: 30px;"})
                                 @Html.RadioButtonFor(m => m.Person.Gender, false)
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                  
+                </div>
+
+                <div class="row">
+             
+
+                    <div class="col-md-4">
                         <div class="_group row">
-                            <div class=" col-md-5 text-right _label">
-                                @Html.LabelFor(p => p.Person.MilitaryService)<span>*</span>
+                            <div class=" col-md-12 ">
+                                @Html.LabelFor(p => p.Person.MilitaryService)
+                                @Html.DropDownListFor(p => p.Person.MilitaryService, DropDown.GetMilitaryList(), new {@class = "form-control _dropdown",style= " display: inline;" })
                             </div>
-                            <div class=" col-md-7">
-
-
-                                @Html.DropDownListFor(p => p.Person.MilitaryService, DropDown.GetMilitaryList(), new { @class = "form-control _dropdown" })
-
-
-
+                            @*<div class=" col-md-5 text-left _label">
+                           
                             </div>
+                            <div class=" col-md-7">*@
+
+
+                            
+
+
+
+                            @*</div>*@
 
                         </div>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="_group row">
                             <div class=" col-md-5 text-left _label ">
                                 @Html.LabelFor(p => p.Person.Marriage)<span>*</span>
                             </div>
                             <div class=" col-md-7">
-                                @Html.Label("مجرد", new { @class = "_label" })
+                                @Html.Label("مجرد", new {@class = "_label"})
                                 @Html.RadioButtonFor(m => m.Person.Marriage, true)
-                                @Html.Label("متاهل", new { @class = "_label", style = "  margin-right: 30px;" })
+                                @Html.Label("متاهل", new {@class = "_label", style = "  margin-right: 30px;"})
                                 @Html.RadioButtonFor(m => m.Person.Marriage, false)
 
                             </div>
@@ -181,7 +237,7 @@
                             </div>
                             <div class=" col-md-3">
 
-                                @Html.TextBoxFor(p => p.Person.Children, new { @class = "form-control" })
+                                @Html.TextBoxFor(p => p.Person.Children, new {@class = "form-control"})
 
                             </div>
                         </div>
@@ -191,18 +247,7 @@
 
                 <div class="row">
 
-                    <div class="col-md-2">
-                        <div class="_group row">
-                            <div class=" col-md-4 text-left _label">
-                                @Html.LabelFor(p => p.Person.NationalCode)
-                            </div>
-                            <div class=" col-md-8">
-
-                                @Html.TextBoxFor(p => p.Person.NationalCode, new { @class = "form-control" })
-
-                            </div>
-                        </div>
-                    </div>
+               
 
                     <div class="col-md-2">
                         <div class="_group row">
@@ -211,7 +256,7 @@
                             </div>
                             <div class=" col-md-8">
 
-                                @Html.TextBoxFor(p => p.Person.Mobile, new { @class = "form-control" })
+                                @Html.TextBoxFor(p => p.Person.Mobile, new {@class = "form-control"})
 
                             </div>
                         </div>
@@ -224,7 +269,7 @@
                             </div>
                             <div class=" col-md-8">
 
-                                @Html.TextBoxFor(p => p.Person.Tell, new { @class = "form-control" })
+                                @Html.TextBoxFor(p => p.Person.Tell, new {@class = "form-control"})
 
                             </div>
                         </div>
@@ -237,7 +282,7 @@
                             </div>
                             <div class=" col-md-8">
 
-                                @Html.TextBoxFor(p => p.Person.Email, new { @class = "form-control" })
+                                @Html.TextBoxFor(p => p.Person.Email, new {@class = "form-control"})
 
                             </div>
                         </div>
@@ -253,7 +298,7 @@
                             </div>
                             <div class=" col-md-11">
 
-                                @Html.TextBoxFor(p => p.Person.Address, new { @class = "form-control", style = " max-width: 1500px;" })
+                                @Html.TextBoxFor(p => p.Person.Address, new {@class = "form-control", style = " max-width: 1500px;"})
 
                             </div>
                         </div>

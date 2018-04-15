@@ -27,9 +27,9 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Father" Type="nvarchar" MaxLength="50" />
           <Property Name="BirthDay" Type="datetime" />
-          <Property Name="Gender" Type="bit" />
+          <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="MilitaryService" Type="tinyint" />
-          <Property Name="Marriage" Type="bit" />
+          <Property Name="Marriage" Type="bit" Nullable="false" />
           <Property Name="Children" Type="tinyint" />
           <Property Name="NationalCode" Type="nvarchar" MaxLength="10" />
           <Property Name="Address" Type="text" />
@@ -40,20 +40,21 @@
           <Property Name="Institute" Type="nvarchar" MaxLength="50" />
           <Property Name="Field" Type="nvarchar" MaxLength="50" />
           <Property Name="EnglishKnowledge" Type="tinyint" />
-          <Property Name="Excel" Type="bit" />
-          <Property Name="Word" Type="bit" />
-          <Property Name="Outlook" Type="bit" />
-          <Property Name="PowerPoint" Type="bit" />
-          <Property Name="Accounting" Type="bit" />
+          <Property Name="Excel" Type="bit" Nullable="false" />
+          <Property Name="Word" Type="bit" Nullable="false" />
+          <Property Name="Outlook" Type="bit" Nullable="false" />
+          <Property Name="PowerPoint" Type="bit" Nullable="false" />
+          <Property Name="Accounting" Type="bit" Nullable="false" />
           <Property Name="OtherSoftwer" Type="text" />
           <Property Name="Skills" Type="text" />
           <Property Name="SalaryExpection" Type="nchar" MaxLength="10" />
           <Property Name="JobStatus" Type="bit" />
           <Property Name="DaysNumber" Type="tinyint" />
-          <Property Name="WorkingGuranty" Type="bit" />
+          <Property Name="WorkingGuranty" Type="bit" Nullable="false" />
           <Property Name="Duration" Type="nchar" MaxLength="10" />
-          <Property Name="GurantyPayment" Type="bit" />
+          <Property Name="GurantyPayment" Type="bit" Nullable="false" />
           <Property Name="image" Type="varbinary(max)" />
+          <Property Name="RegPerson" Type="datetime" />
         </EntityType>
         <EntityType Name="RelationShip">
           <Key>
@@ -64,6 +65,7 @@
           <Property Name="Relational" Type="nvarchar" MaxLength="50" />
           <Property Name="Tell" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Person_FK" Type="int" />
         </EntityType>
         <EntityContainer Name="AdidasTehranModelStoreContainer">
           <EntitySet Name="JobRecords" EntityType="Self.JobRecords" Schema="dbo" store:Type="Tables" />
@@ -97,7 +99,7 @@
           <Property Name="Father" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BirthDay" Type="DateTime" Precision="3" />
           <Property Name="MilitaryService" Type="Byte" />
-          <Property Name="Marriage" Type="Boolean" />
+          <Property Name="Marriage" Type="Boolean" Nullable="false" />
           <Property Name="Children" Type="Byte" />
           <Property Name="NationalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -108,21 +110,22 @@
           <Property Name="Institute" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Field" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="EnglishKnowledge" Type="Byte" />
-          <Property Name="Excel" Type="Boolean" />
-          <Property Name="Word" Type="Boolean" />
-          <Property Name="Outlook" Type="Boolean" />
-          <Property Name="PowerPoint" Type="Boolean" />
-          <Property Name="Accounting" Type="Boolean" />
+          <Property Name="Excel" Type="Boolean" Nullable="false" />
+          <Property Name="Word" Type="Boolean" Nullable="false" />
+          <Property Name="Outlook" Type="Boolean" Nullable="false" />
+          <Property Name="PowerPoint" Type="Boolean" Nullable="false" />
+          <Property Name="Accounting" Type="Boolean" Nullable="false" />
           <Property Name="OtherSoftwer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SalaryExpection" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="JobStatus" Type="Boolean" />
           <Property Name="DaysNumber" Type="Byte" />
-          <Property Name="WorkingGuranty" Type="Boolean" />
+          <Property Name="WorkingGuranty" Type="Boolean" Nullable="false" />
           <Property Name="Duration" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="GurantyPayment" Type="Boolean" />
-          <Property Name="Gender" Type="Boolean" />
+          <Property Name="GurantyPayment" Type="Boolean" Nullable="false" />
+          <Property Name="Gender" Type="Boolean" Nullable="false" />
           <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RegPerson" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="RelationShip">
           <Key>
@@ -133,6 +136,7 @@
           <Property Name="Relational" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Person_FK" Type="Int32" />
         </EntityType>
         <EntityContainer Name="AdidasTehranEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="JobRecords" EntityType="Self.JobRecord" />
@@ -162,6 +166,7 @@
           <EntitySetMapping Name="People">
             <EntityTypeMapping TypeName="AdidasTehranModel.Person">
               <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="RegPerson" ColumnName="RegPerson" />
                 <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -200,6 +205,7 @@
           <EntitySetMapping Name="RelationShips">
             <EntityTypeMapping TypeName="AdidasTehranModel.RelationShip">
               <MappingFragment StoreEntitySet="RelationShip">
+                <ScalarProperty Name="Person_FK" ColumnName="Person_FK" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Relational" ColumnName="Relational" />
