@@ -74,7 +74,7 @@
                 <div class=" row">
                     <div class="col-md-2">
                         <div class="_group row">
-                            <div class=" col-md-3 text-right _label ">
+                            <div class=" col-md-3 text-left _label ">
                                 @Html.LabelFor(p => p.Person.Name)<span>*</span>
                             </div>
                             <div class=" col-md-9">
@@ -86,7 +86,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="_group row">
-                            <div class=" col-md-4 text-right _label">
+                            <div class=" col-md-4 text-left _label">
                                 @Html.LabelFor(p => p.Person.LastName)<span>*</span>
                             </div>
                             <div class=" col-md-8">
@@ -98,7 +98,7 @@
                     </div>
                     <div class="col-md-2">
                         <div class="_group row">
-                            <div class=" col-md-4 text-right _label">
+                            <div class=" col-md-4 text-left _label">
                                 @Html.LabelFor(p => p.Person.Father)<span>*</span>
                             </div>
                             <div class=" col-md-8">
@@ -110,7 +110,7 @@
                     </div>
                     <div class="col-md-3">
                         <div class="_group row">
-                            <div class=" col-md-3 text-right _label">
+                            <div class=" col-md-3 text-left _label">
                                 @Html.LabelFor(p => p.Person.BirthDay)<span>*</span>
                             </div>
                             <div class=" col-md-9">
@@ -129,7 +129,7 @@
                 <div class="row">
                     <div class="col-md-2">
                         <div class="_group row">
-                            <div class=" col-md-5 text-right _label ">
+                            <div class=" col-md-5 text-left _label ">
                                 @Html.LabelFor(p => p.Person.Gender)<span>*</span>
                             </div>
                             <div class=" col-md-7">
@@ -161,7 +161,7 @@
 
                     <div class="col-md-3">
                         <div class="_group row">
-                            <div class=" col-md-5 text-right _label ">
+                            <div class=" col-md-5 text-left _label ">
                                 @Html.LabelFor(p => p.Person.Marriage)<span>*</span>
                             </div>
                             <div class=" col-md-7">
@@ -176,7 +176,7 @@
 
                     <div class="col-md-4">
                         <div class="_group row">
-                            <div class=" col-md-3 text-right _label">
+                            <div class=" col-md-3 text-left _label">
                                 @Html.LabelFor(p => p.Person.Children)
                             </div>
                             <div class=" col-md-3">
@@ -193,7 +193,7 @@
 
                     <div class="col-md-2">
                         <div class="_group row">
-                            <div class=" col-md-4 text-right _label">
+                            <div class=" col-md-4 text-left _label">
                                 @Html.LabelFor(p => p.Person.NationalCode)
                             </div>
                             <div class=" col-md-8">
@@ -206,7 +206,7 @@
 
                     <div class="col-md-2">
                         <div class="_group row">
-                            <div class=" col-md-4 text-right _label">
+                            <div class=" col-md-4 text-left _label">
                                 @Html.LabelFor(p => p.Person.Mobile)<span>*</span>
                             </div>
                             <div class=" col-md-8">
@@ -219,7 +219,7 @@
 
                     <div class="col-md-2">
                         <div class="_group row">
-                            <div class=" col-md-4 text-right _label">
+                            <div class=" col-md-4 text-left _label">
                                 @Html.LabelFor(p => p.Person.Tell)<span>*</span>
                             </div>
                             <div class=" col-md-8">
@@ -232,7 +232,7 @@
 
                     <div class="col-md-3">
                         <div class="_group row">
-                            <div class=" col-md-4 text-right _label">
+                            <div class=" col-md-4 text-left _label">
                                 @Html.LabelFor(p => p.Person.Email)<span>*</span>
                             </div>
                             <div class=" col-md-8">
@@ -248,7 +248,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="_group row">
-                            <div class=" col-md-1 text-right _label">
+                            <div class=" col-md-1 text-left _label">
                                 @Html.LabelFor(p => p.Person.Address)<span>*</span>
                             </div>
                             <div class=" col-md-11">
@@ -336,7 +336,7 @@
                     <p class="_label">  آیا دوره خاصی مانند کامپیوتر و تجهیزات را گذرانده اید؟(ذکر دوره)</p>
                     <p>
                         @Html.LabelFor(p => p.Person.Excel)
-                        @Html.CheckBoxFor(m => m.Person.Excel.Value, new { @class = "form-control",style= "  display: inline;" })
+                        @Html.CheckBoxFor(m => m.Person.Excel, new { @class = "form-control _checkbox"})
                     </p>
                 </div>
                 

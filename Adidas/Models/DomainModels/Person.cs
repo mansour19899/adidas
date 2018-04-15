@@ -34,11 +34,11 @@ namespace Adidas.Models.DomainModels
         public string Institute { get; set; }
         public string Field { get; set; }
         public Nullable<byte> EnglishKnowledge { get; set; }
-        public Nullable<bool> Excel { get; set; }
-        public Nullable<bool> Word { get; set; }
-        public Nullable<bool> Outlook { get; set; }
-        public Nullable<bool> PowerPoint { get; set; }
-        public Nullable<bool> Accounting { get; set; }
+        public bool Excel { get; set; }
+        public bool Word { get; set; }
+        public bool Outlook { get; set; }
+        public bool PowerPoint { get; set; }
+        public bool Accounting { get; set; }
         public string OtherSoftwer { get; set; }
         public string Skills { get; set; }
         public string SalaryExpection { get; set; }
