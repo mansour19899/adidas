@@ -30,7 +30,7 @@ textarea {
     padding-right:0px;
 }
 .form-control {
-    font-size: 15px;
+    font-size: 20px;
    height: 40px;
     width: 80%;
     display: inline;
@@ -52,7 +52,7 @@ textarea {
 ._dropdown {
     padding-bottom:8px;
     font-family: b mitra;
-    font-size:23px;
+    font-size:15px;
 }
 .row {
     margin-bottom: 20px;
