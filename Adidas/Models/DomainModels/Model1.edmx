@@ -48,7 +48,7 @@
           <Property Name="OtherSoftwer" Type="text" />
           <Property Name="Skills" Type="text" />
           <Property Name="SalaryExpection" Type="nchar" MaxLength="10" />
-          <Property Name="JobStatus" Type="bit" />
+          <Property Name="JobStatus" Type="bit" Nullable="false" />
           <Property Name="DaysNumber" Type="tinyint" />
           <Property Name="WorkingGuranty" Type="bit" Nullable="false" />
           <Property Name="Duration" Type="nchar" MaxLength="10" />
@@ -118,7 +118,7 @@
           <Property Name="OtherSoftwer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Skills" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="SalaryExpection" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="JobStatus" Type="Boolean" />
+          <Property Name="JobStatus" Type="Boolean" Nullable="false" />
           <Property Name="DaysNumber" Type="Byte" />
           <Property Name="WorkingGuranty" Type="Boolean" Nullable="false" />
           <Property Name="Duration" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />

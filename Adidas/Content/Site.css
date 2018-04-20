@@ -21,7 +21,7 @@
 input,
 select,
 textarea {
-    max-width: 800px;
+    max-width: 2000px;
     padding: 10px;
 }
 
@@ -31,8 +31,9 @@ textarea {
 }
 .form-control {
     font-size: 20px;
-   height: 40px;
-    width: 80%;
+    height: 40px;
+    width: 100%;
+    font-family: b mitra;
     display: inline;
 }
 ._label {
@@ -71,9 +72,9 @@ textarea {
     padding-right: 30px;
 }
 ._checkbox {
-    /*height: auto;
+    height: auto;
     width:  0px;
-    display: inline;*/
+    display: inline;
 }
 
 

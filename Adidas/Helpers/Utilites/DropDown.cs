@@ -49,8 +49,8 @@ using System.Web.Mvc;
         {
             List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "مرد", Value = "1"},
-                new SelectListItem{Text = "زن", Value = "0"}
+                new SelectListItem{Text = "مرد", Value = "True"},
+                new SelectListItem{Text = "زن", Value = "False"}
             };
             return items;
         }
@@ -59,9 +59,46 @@ using System.Web.Mvc;
         {
             List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "مجرد", Value = "1"},
-                new SelectListItem{Text = "متاهل", Value = "0"}
+                new SelectListItem{Text = "مجرد", Value = "True"},
+                new SelectListItem{Text = "متاهل", Value = "False"}
             };
             return items;
         }
+
+    public static IEnumerable<SelectListItem> GetJobStatusList()
+    {
+        List<SelectListItem> items = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "تمام وقت", Value = "True"},
+                new SelectListItem{Text = "نیمه وقت", Value = "False"}
+            };
+        return items;
+    }
+
+    public static IEnumerable<SelectListItem> GetYesOrNoList()
+    {
+        List<SelectListItem> items = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "بله", Value = "True"},
+                new SelectListItem{Text = "خیر", Value = "False"}
+            };
+        return items;
+    }
+
+    public static IEnumerable<SelectListItem> GetDaysList()
+    {
+        List<SelectListItem> items = new List<SelectListItem>
+            {
+              new SelectListItem{Text = "------------------------", Value = "0"},
+                new SelectListItem{Text = " 1 روز", Value = "1"},
+                new SelectListItem{Text = "2 روز", Value = "2"},
+                new SelectListItem{Text = "3 روز", Value = "3"},
+                new SelectListItem{Text = " 4 روز", Value = "4"},
+                new SelectListItem{Text = "5 روز  ", Value = "5"},
+                  new SelectListItem{Text = "6 روز  ", Value = "6"}
+              };
+        return items;
+    }
+
+
 }

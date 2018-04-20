@@ -39,7 +39,7 @@ namespace Adidas.Models.DomainModels
         public string OtherSoftwer { get; set; }
         public string Skills { get; set; }
         public string SalaryExpection { get; set; }
-        public Nullable<bool> JobStatus { get; set; }
+        public bool JobStatus { get; set; }
         public Nullable<byte> DaysNumber { get; set; }
         public bool WorkingGuranty { get; set; }
         public string Duration { get; set; }

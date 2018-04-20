@@ -84,10 +84,10 @@ namespace Adidas.Models.EntityModels
         public string SalaryExpection { get; set; }
         [DisplayName("متقاضی کار ")]
         [Display(Name = "متقاضی کار ")]
-        public Nullable<bool> JobStatus { get; set; }
+        public bool JobStatus { get; set; }
         [DisplayName("چند روز در هفته ")]
         [Display(Name = "چند روز در هفته ")]
-        public Nullable<byte> DaysNumber { get; set; }
+        public string DaysNumber { get; set; }
         [DisplayName("آیا تعهد کاری 3 سال کار را می دهید؟ ")]
         [Display(Name = "آیا تعهد 3 سال کار را می دهید؟ ")]
         public Nullable<bool> WorkingGuranty { get; set; }
