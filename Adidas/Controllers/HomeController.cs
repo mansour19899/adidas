@@ -45,7 +45,8 @@ namespace Adidas.Controllers
         [HttpPost]
         public ActionResult Register(PersonInfo per)
         {
-        
+            per.Person.BirthDay = (per.Date.Year + "/" + per.Date.Month + "/" + per.Date.Day).ToGeorgianDateTime();
+
             return View();
         }
 

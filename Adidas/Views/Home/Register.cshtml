@@ -130,9 +130,9 @@
                             @Html.LabelFor(p => p.Person.BirthDay)
                         </p>
                         <p>
-                            @Html.DropDownListFor(p => p.Date.Day, new SelectList(ViewBag.Day), new { @class = " _date form-control " })
-                            @Html.DropDownListFor(p => p.Date.Month, new SelectList(ViewBag.Month), new { @class = " _date form-control " })
-                            @Html.DropDownListFor(p => p.Date.Year, new SelectList(ViewBag.Year), new { @class = " _date form-control " })
+                            @Html.DropDownListFor(p => p.Date.Day, DropDown.GetDay(), new { @class = " _date form-control " })
+                            @Html.DropDownListFor(p => p.Date.Month, DropDown.GetMounth(), new { @class = " _date form-control " })
+                            @Html.DropDownListFor(p => p.Date.Year, DropDown.GetYear(), new { @class = " _date form-control " })
 
                         </p>
                     </div>

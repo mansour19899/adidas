@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KiyoskWall
-{
+
     public static class PersianDate
     {
         public static DateTime ToGeorgianDateTime(this string persianDate)
@@ -76,4 +75,3 @@ namespace KiyoskWall
             return dif.Days;
         }
     }
-}
