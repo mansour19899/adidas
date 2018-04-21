@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Adidas.Models.EntityModels;
+using Adidas.Models.Repositores;
 using Adidas.ViewModels;
 
 namespace Adidas.Controllers
@@ -46,6 +47,11 @@ namespace Adidas.Controllers
         public ActionResult Register(PersonInfo per)
         {
             per.Person.BirthDay = (per.Date.Year + "/" + per.Date.Month + "/" + per.Date.Day).ToGeorgianDateTime();
+            per.Person.RegPerson = DateTime.Now;
+
+            PersonRepository blPerson = new PersonRepository();
+
+            blPerson.Add(per.Person);
 
             return View();
         }
