@@ -51,11 +51,11 @@ namespace Adidas.Controllers
 
             PersonRepository blPerson = new PersonRepository();
 
-            blPerson.Add(per.Person);
-
-            return View();
+            //lPerson.Add(per.Person);
+            return MessageBox.Show("با موفقیت ثبت شد", MessageType.Error);
+            //return View();
         }
 
-       
+
     }
 }
