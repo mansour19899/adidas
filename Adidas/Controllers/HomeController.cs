@@ -52,6 +52,7 @@ namespace Adidas.Controllers
             PersonRepository blPerson = new PersonRepository();
 
             blPerson.Add(per.Person);
+            
 
             return View();
         }
