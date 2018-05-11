@@ -20,5 +20,7 @@ namespace Adidas.Models.DomainModels
         public string Tell { get; set; }
         public string Address { get; set; }
         public Nullable<int> Person_FK { get; set; }
+    
+        public virtual Person Person { get; set; }
     }
 }

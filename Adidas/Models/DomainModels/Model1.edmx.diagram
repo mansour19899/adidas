@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="AdidasTehranModel.JobRecord" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AdidasTehranModel.Person" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AdidasTehranModel.RelationShip" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="AdidasTehranModel.FK_JobRecords_Person" />
+        <AssociationConnector Association="AdidasTehranModel.FK_RelationShip_Person" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

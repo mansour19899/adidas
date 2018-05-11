@@ -11,6 +11,7 @@ namespace Adidas.Controllers
 {
     public class HomeController : Controller
     {
+        public static int personId;
         public ActionResult Index()
         {
             return View();
@@ -46,13 +47,45 @@ namespace Adidas.Controllers
         [HttpPost]
         public ActionResult Register(PersonInfo per)
         {
+            personId = 0;
             per.Person.BirthDay = (per.Date.Year + "/" + per.Date.Month + "/" + per.Date.Day).ToGeorgianDateTime();
             per.Person.RegPerson = DateTime.Now;
 
             PersonRepository blPerson = new PersonRepository();
+            JobRecordRepository blJob = new JobRecordRepository();
+            RelationShipRepository blRelation = new RelationShipRepository();
 
-            //lPerson.Add(per.Person);
-            return MessageBox.Show("با موفقیت ثبت شد", MessageType.Success);
+            if(blPerson.Add(per.Person))
+            {
+                per.JobRecord1.Person_FK = personId;
+                per.JobRecord2.Person_FK = personId;
+                per.JobRecord3.Person_FK = personId;
+
+                per.RelationShip1.Person_FK = personId;
+                per.RelationShip2.Person_FK = personId;
+                per.RelationShip3.Person_FK = personId;
+
+                if (per.JobRecord1.Company!=null)
+                blJob.Add(per.JobRecord1);
+               if (per.JobRecord2.Company != null)
+                    blJob.Add(per.JobRecord2);
+                if (per.JobRecord3.Company != null)
+                    blJob.Add(per.JobRecord3);
+
+                if (per.RelationShip1.Name != null)
+                    blRelation.Add(per.RelationShip1);
+                if (per.RelationShip2.Name != null)
+                    blRelation.Add(per.RelationShip2);
+                if (per.RelationShip3.Name != null)
+                    blRelation.Add(per.RelationShip3);
+
+
+
+                return MessageBox.Show("با موفقیت ثبت شد", MessageType.Success);
+            }
+      
+            else
+                return MessageBox.Show(" ثبت نشد", MessageType.Error);
             //return View();
         }
 
