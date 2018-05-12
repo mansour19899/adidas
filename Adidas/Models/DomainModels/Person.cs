@@ -14,13 +14,6 @@ namespace Adidas.Models.DomainModels
     
     public partial class Person
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Person()
-        {
-            this.JobRecords = new HashSet<JobRecord>();
-            this.RelationShips = new HashSet<RelationShip>();
-        }
-    
         public int Id { get; set; }
         public string LastName { get; set; }
         public string Name { get; set; }
@@ -54,10 +47,5 @@ namespace Adidas.Models.DomainModels
         public bool Gender { get; set; }
         public byte[] image { get; set; }
         public Nullable<System.DateTime> RegPerson { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<JobRecord> JobRecords { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RelationShip> RelationShips { get; set; }
     }
 }

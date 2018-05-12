@@ -187,9 +187,7 @@
     <Compile Include="Models\EntityModels\PersonMetaData.cs" />
     <Compile Include="Models\EntityModels\RelationShipMetaData.cs" />
     <Compile Include="Models\Enums\MilitaryStatus.cs" />
-    <Compile Include="Models\Repositores\JobRecordRepository.cs" />
     <Compile Include="Models\Repositores\PersonRepository.cs" />
-    <Compile Include="Models\Repositores\RelationShipRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\PersonInfo.cs" />
   </ItemGroup>

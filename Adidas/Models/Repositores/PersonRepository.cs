@@ -19,14 +19,8 @@ namespace Adidas.Models.Repositores
             try
             {
                 db.People.Add(entity);
-                
                 if (autoSave)
-                {
-                    int x = db.SaveChanges();
-                    Adidas.Controllers.HomeController.personId = entity.Id;
-                    return Convert.ToBoolean(x);
-                }
-                   
+                    return Convert.ToBoolean(db.SaveChanges());
                 else
                     return false;
             }
