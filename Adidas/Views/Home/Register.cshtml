@@ -15,55 +15,70 @@
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/jquery-3.3.1.js"></script>
 
+    <script>
+        $(document).ready(function () {
+            var _my_height = $(window).height();
+            $("._Header").css("height", _my_height);
 
+            // کلاس دکمه
+            $("#hi").click(function () {
+                $("._Header").fadeOut(1500);
+                $(".allcontentpage").fadeIn(1500);
+            });
+        });
+
+    </script>
 
 
 
 </head>
 <body class="container-fluid">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-            </div>
+    @*<nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Brand</a>
+                </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Search" type="text">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                </ul>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Search" type="text">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="row text-center"><h1>فرم استخدام</h1></div>
-    <div style="padding-top: 50px; padding-left: 20px; padding-right: 20px;">
+        </nav>*@
+    <div class="row text-center _Header">
+
+        <button type="button" id="hi" class="btn btn-primary text-center" style="position:absolute ;bottom: 10px;right: 150px;height: 75px;width: 200px;font-size: 20px;margin:10px;">فرم استخدام</button>
+    </div>
+    <div style="padding-top: 50px; padding-left: 20px; padding-right: 20px;" class="allcontentpage">
 
         @using (Ajax.BeginForm("Register", "Home", new AjaxOptions { HttpMethod = "Post", Url = "/Home/Register" }))
         {
@@ -306,7 +321,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-6">
-                            @Html.Label("سایر نرم افزار ها",new { @class="_label"})
+                            @Html.Label("سایر نرم افزار ها", new { @class = "_label" })
                             @Html.TextBoxFor(p => p.Person.OtherSoftwer, new { @class = "form-control", style = " width:  70%;display: inline;" })
 
                         </div>
@@ -415,7 +430,7 @@
                         <div class="col-lg-1 col-md-12">
                             <div class="row" style="background-color:lightgray;height: 40px;">
                                 <div class="col-lg-12 text-center " style="margin-top: 10px;padding: 0px;">@Html.Label("ردیف 3", new { @class = "_label" })</div>
-                                  </div>
+                            </div>
                         </div>
 
                         <div class="col-lg-2 col-md-4 col-sm-6 ">
@@ -539,7 +554,9 @@
                         <div class="row">
 
                             <div class="col-lg-1 col-md-12">
-                                @Html.Label("آشنای اول")
+                                <div class="row" style="background-color:lightgray;height: 40px;position:relative;top:25px;margin-bottom: 40px;">
+                                    <div class="col-lg-12 text-center  " style="margin-top: 10px;padding: 0px;">@Html.Label("ردیف 1", new { @class = "_label" })</div>
+                                </div>
                             </div>
 
                             <div class="col-lg-2 col-md-4 col-sm-6 ">
@@ -563,9 +580,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-12 col-sm-6">
+                            <div class="col-lg-5 col-md-12 col-sm-6">
                                 <div class="row">
-                                    <div class="col-lg-12 text-center">@Html.LabelFor(p => p.RelationShip1.Address, new { @class = "_label" })</div>
+                                    <div class="col-lg-12 ">@Html.LabelFor(p => p.RelationShip1.Address, new { @class = "_label" })</div>
                                     <div class="col-lg-12">@Html.TextBoxFor(p => p.RelationShip1.Address, new { @class = "form-control" })</div>
                                 </div>
                             </div>
@@ -579,9 +596,8 @@
                         <div class="row">
 
                             <div class="col-lg-1 col-md-12">
-                                <div class="row" style="background-color:darkgray">
-                                    <div class="col-lg-12 text-center ">@Html.Label("ردیف")</div>
-                                    <div class="col-lg-12 text-center">@Html.Label("2")</div>
+                                <div class="row" style="background-color:lightgray;height: 40px;position:relative;top:25px;margin-bottom: 40px;">
+                                    <div class="col-lg-12 text-center  " style="margin-top: 10px;padding: 0px;">@Html.Label("ردیف 2", new { @class = "_label" })</div>
                                 </div>
                             </div>
 
@@ -606,9 +622,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-12 col-sm-6">
+                            <div class="col-lg-5 col-md-12 col-sm-6">
                                 <div class="row">
-                                    <div class="col-lg-12 text-center">@Html.LabelFor(p => p.RelationShip2.Address, new { @class = "_label" })</div>
+                                    <div class="col-lg-12">@Html.LabelFor(p => p.RelationShip2.Address, new { @class = "_label" })</div>
                                     <div class="col-lg-12">@Html.TextBoxFor(p => p.RelationShip2.Address, new { @class = "form-control" })</div>
                                 </div>
                             </div>
@@ -622,9 +638,8 @@
                         <div class="row">
 
                             <div class="col-lg-1 col-md-12">
-                                <div class="row" style="background-color:darkgray">
-                                    <div class="col-lg-12 text-center ">@Html.Label("ردیف")</div>
-                                    <div class="col-lg-12 text-center">@Html.Label("3")</div>
+                                <div class="row" style="background-color:lightgray;height: 40px;position:relative;top:25px;margin-bottom: 40px;">
+                                    <div class="col-lg-12 text-center  " style="margin-top: 10px;padding: 0px;">@Html.Label("ردیف 3", new { @class = "_label" })</div>
                                 </div>
                             </div>
 
@@ -649,9 +664,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3 col-md-12 col-sm-6">
+                            <div class="col-lg-5 col-md-12 col-sm-6">
                                 <div class="row">
-                                    <div class="col-lg-12 text-center">@Html.LabelFor(p => p.RelationShip3.Address, new { @class = "_label" })</div>
+                                    <div class="col-lg-12 ">@Html.LabelFor(p => p.RelationShip3.Address, new { @class = "_label" })</div>
                                     <div class="col-lg-12">@Html.TextBoxFor(p => p.RelationShip3.Address, new { @class = "form-control" })</div>
                                 </div>
                             </div>

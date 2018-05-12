@@ -252,6 +252,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Repositores\addidas.jpg" />
+    <Content Include="Models\Repositores\adidas-wallpaper-hd-008.jpg" />
+    <Content Include="Models\Repositores\adidaslogo.png" />
+    <Content Include="Models\Repositores\sorbino.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

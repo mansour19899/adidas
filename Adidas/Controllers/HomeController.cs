@@ -79,8 +79,6 @@ namespace Adidas.Controllers
                 if (per.RelationShip3.Name != null)
                     blRelation.Add(per.RelationShip3);
 
-
-
                 return MessageBox.Show("با موفقیت ثبت شد", MessageType.Success);
             }
       
