@@ -5,28 +5,23 @@ using System.Web;
 
 namespace Adidas.Models.Repositores
 {
-    public class PersonRepository : IDisposable
+    public class RelationShipRepository: IDisposable
     {
         private Adidas.Models.DomainModels.AdidasTehranEntities db = null;
 
-        public PersonRepository()
+        public RelationShipRepository()
         {
             db = new DomainModels.AdidasTehranEntities();
         }
 
-        public bool Add(Adidas.Models.DomainModels.Person entity, bool autoSave = true)
+        public bool Add(Adidas.Models.DomainModels.RelationShip entity, bool autoSave = true)
         {
             try
             {
-                db.People.Add(entity);
-                
+                db.RelationShips.Add(entity);
+                //Adidas.Controllers.HomeController.personId = entity.Id;
                 if (autoSave)
-                {
-                    int x = db.SaveChanges();
-                    Adidas.Controllers.HomeController.personId = entity.Id;
-                    return Convert.ToBoolean(x);
-                }
-                   
+                    return Convert.ToBoolean(db.SaveChanges());
                 else
                     return false;
             }
@@ -36,11 +31,11 @@ namespace Adidas.Models.Repositores
             }
         }
 
-        public bool Update(Adidas.Models.DomainModels.Person entity, bool autoSave = true)
+        public bool Update(Adidas.Models.DomainModels.RelationShip entity, bool autoSave = true)
         {
             try
             {
-                db.People.Attach(entity);
+                db.RelationShips.Attach(entity);
                 db.Entry(entity).State = System.Data.Entity.EntityState.Modified;
                 if (autoSave)
                     return Convert.ToBoolean(db.SaveChanges());
@@ -53,7 +48,7 @@ namespace Adidas.Models.Repositores
             }
         }
 
-        public bool Delete(Adidas.Models.DomainModels.Person entity, bool autoSave = true)
+        public bool Delete(Adidas.Models.DomainModels.RelationShip entity, bool autoSave = true)
         {
             try
             {
@@ -86,11 +81,11 @@ namespace Adidas.Models.Repositores
             }
         }
 
-        public Adidas.Models.DomainModels.Person Find(int id)
+        public Adidas.Models.DomainModels.RelationShip Find(int id)
         {
             try
             {
-                return db.People.Find(id);
+                return db.RelationShips.Find(id);
             }
             catch
             {
@@ -98,11 +93,11 @@ namespace Adidas.Models.Repositores
             }
         }
 
-        public IQueryable<Adidas.Models.DomainModels.Person> Where(System.Linq.Expressions.Expression<Func<Adidas.Models.DomainModels.Person, bool>> predicate)
+        public IQueryable<Adidas.Models.DomainModels.RelationShip> Where(System.Linq.Expressions.Expression<Func<Adidas.Models.DomainModels.RelationShip, bool>> predicate)
         {
             try
             {
-                return db.People.Where(predicate);
+                return db.RelationShips.Where(predicate);
             }
             catch
             {
@@ -110,11 +105,11 @@ namespace Adidas.Models.Repositores
             }
         }
 
-        public IQueryable<Adidas.Models.DomainModels.Person> Select()
+        public IQueryable<Adidas.Models.DomainModels.RelationShip> Select()
         {
             try
             {
-                return db.People.AsQueryable();
+                return db.RelationShips.AsQueryable();
             }
             catch
             {
@@ -122,11 +117,11 @@ namespace Adidas.Models.Repositores
             }
         }
 
-        public IQueryable<TResult> Select<TResult>(System.Linq.Expressions.Expression<Func<Adidas.Models.DomainModels.Person, TResult>> selector)
+        public IQueryable<TResult> Select<TResult>(System.Linq.Expressions.Expression<Func<Adidas.Models.DomainModels.RelationShip, TResult>> selector)
         {
             try
             {
-                return db.People.Select(selector);
+                return db.RelationShips.Select(selector);
             }
             catch
             {
@@ -179,7 +174,7 @@ namespace Adidas.Models.Repositores
             }
         }
 
-        ~PersonRepository()
+        ~RelationShipRepository()
         {
             Dispose(false);
         }

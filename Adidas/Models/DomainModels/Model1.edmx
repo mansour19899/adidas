@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Company" Type="nvarchar(max)" />
           <Property Name="Title" Type="nvarchar(max)" />
           <Property Name="Duration" Type="nvarchar(max)" />
@@ -22,7 +22,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Father" Type="nvarchar" MaxLength="50" />
@@ -60,17 +60,49 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" />
           <Property Name="Relational" Type="nvarchar" MaxLength="50" />
           <Property Name="Tell" Type="nvarchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Person_FK" Type="int" />
         </EntityType>
+        <Association Name="FK_JobRecords_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="JobRecords" Type="Self.JobRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobRecords">
+              <PropertyRef Name="Person_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelationShip_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="Person_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AdidasTehranModelStoreContainer">
           <EntitySet Name="JobRecords" EntityType="Self.JobRecords" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RelationShip" EntityType="Self.RelationShip" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_JobRecords_Person" Association="Self.FK_JobRecords_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="JobRecords" EntitySet="JobRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelationShip_Person" Association="Self.FK_RelationShip_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="RelationShip" EntitySet="RelationShip" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -88,6 +120,7 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Tell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Person_FK" Type="Int32" />
+          <NavigationProperty Name="Person" Relationship="AdidasTehranModel.FK_JobRecords_Person" FromRole="JobRecord" ToRole="Person" />
         </EntityType>
         <EntityType Name="Person">
           <Key>
@@ -126,6 +159,8 @@
           <Property Name="Gender" Type="Boolean" Nullable="false" />
           <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="RegPerson" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobRecords" Relationship="AdidasTehranModel.FK_JobRecords_Person" FromRole="Person" ToRole="JobRecord" />
+          <NavigationProperty Name="RelationShips" Relationship="AdidasTehranModel.FK_RelationShip_Person" FromRole="Person" ToRole="RelationShip" />
         </EntityType>
         <EntityType Name="RelationShip">
           <Key>
@@ -137,12 +172,45 @@
           <Property Name="Tell" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Person_FK" Type="Int32" />
+          <NavigationProperty Name="Person" Relationship="AdidasTehranModel.FK_RelationShip_Person" FromRole="RelationShip" ToRole="Person" />
         </EntityType>
         <EntityContainer Name="AdidasTehranEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="JobRecords" EntityType="Self.JobRecord" />
           <EntitySet Name="People" EntityType="Self.Person" />
           <EntitySet Name="RelationShips" EntityType="Self.RelationShip" />
+          <AssociationSet Name="FK_JobRecords_Person" Association="AdidasTehranModel.FK_JobRecords_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="JobRecord" EntitySet="JobRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelationShip_Person" Association="AdidasTehranModel.FK_RelationShip_Person">
+            <End Role="Person" EntitySet="People" />
+            <End Role="RelationShip" EntitySet="RelationShips" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_JobRecords_Person">
+          <End Type="AdidasTehranModel.Person" Role="Person" Multiplicity="0..1" />
+          <End Type="AdidasTehranModel.JobRecord" Role="JobRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobRecord">
+              <PropertyRef Name="Person_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelationShip_Person">
+          <End Type="AdidasTehranModel.Person" Role="Person" Multiplicity="0..1" />
+          <End Type="AdidasTehranModel.RelationShip" Role="RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="Person_FK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

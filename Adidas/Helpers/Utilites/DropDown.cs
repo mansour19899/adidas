@@ -175,6 +175,7 @@ public class DropDown
                 new SelectListItem{Text = "1370", Value = "1370"},
                 new SelectListItem{Text = "1371", Value = "1371"},
                  new SelectListItem{Text = "1372", Value = "1372"},
+               new SelectListItem{Text = "1373", Value = "1373"},
                 new SelectListItem{Text = "1374", Value = "1374"},
                 new SelectListItem{Text = "1375", Value = "1375"},
                 new SelectListItem{Text = "1376", Value = "1376"},
