@@ -25,6 +25,21 @@
                 $("._Header").fadeOut(1500);
                 $(".allcontentpage").fadeIn(1500);
             });
+
+            $("#Person_Gender").change(function () {
+
+                var x = $(this).val();
+               
+                if ($(this).val() != "True") {
+                    $("#Person_MilitaryService").removeAttr("D");
+                }
+                else {
+                    alert("Reyhaneh");
+                }
+ 
+          
+               
+            })
         });
 
     </script>
