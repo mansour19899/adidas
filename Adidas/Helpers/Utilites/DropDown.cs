@@ -11,11 +11,11 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "---------------------------", Value = "0"},
-                new SelectListItem{Text = "دارای کارت پایان خدمت", Value = "1"},
-                new SelectListItem{Text = "معافیت تحصیلی", Value = "2"},
-                new SelectListItem{Text = "معافیت پزشکی", Value = "3"},
-                new SelectListItem{Text = "غایب", Value = "4"},
+                new SelectListItem{Text = "---------------------------", Value = "0",Selected=true},
+                new SelectListItem{Text = "دارای کارت پایان خدمت", Value = "1",Selected=false},
+                new SelectListItem{Text = "معافیت تحصیلی", Value = "2",Selected=false},
+                new SelectListItem{Text = "معافیت پزشکی", Value = "3",Selected=false},
+                new SelectListItem{Text = "غایب", Value = "4",Selected=false},
             };
         return items;
     }
@@ -24,11 +24,12 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "دیپلم", Value = "1"},
-                new SelectListItem{Text = "کاردانی", Value = "2"},
-                new SelectListItem{Text = "کارشناسی", Value = "3"},
-                new SelectListItem{Text = "کارشناسی ارشد", Value = "4"},
-                new SelectListItem{Text = "در حین تحصیل", Value = "5"}
+               new SelectListItem{Text = "---------------------", Value = "0",Selected=true},
+                new SelectListItem{Text = "دیپلم", Value = "1",Selected=false},
+                new SelectListItem{Text = "کاردانی", Value = "2",Selected=false},
+                new SelectListItem{Text = "کارشناسی", Value = "3",Selected=false},
+                new SelectListItem{Text = "کارشناسی ارشد", Value = "4",Selected=false},
+                new SelectListItem{Text = "در حین تحصیل", Value = "5",Selected=false}
               };
         return items;
     }
@@ -37,9 +38,9 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "ابتدایی", Value = "1"},
-                new SelectListItem{Text = "متوسط", Value = "2"},
-                new SelectListItem{Text = "خوب", Value = "3"}
+                new SelectListItem{Text = "ابتدایی", Value = "1",Selected=false},
+                new SelectListItem{Text = "متوسط", Value = "2",Selected=true},
+                new SelectListItem{Text = "خوب", Value = "3",Selected=false}
 
             };
         return items;
@@ -49,8 +50,8 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "مرد", Value = "True",Selected=true},
-                new SelectListItem{Text = "زن", Value = "False",Selected=false}
+                new SelectListItem{Text = "مرد", Value = "true",Selected=true},
+                new SelectListItem{Text = "زن", Value = "false",Selected=false}
             };
         return items;
     }
@@ -59,8 +60,8 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "مجرد", Value = "True"},
-                new SelectListItem{Text = "متاهل", Value = "False"}
+                new SelectListItem{Text = "مجرد", Value = "true",Selected=true},
+                new SelectListItem{Text = "متاهل", Value = "false",Selected=false }
             };
         return items;
     }
@@ -69,8 +70,8 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "تمام وقت", Value = "True"},
-                new SelectListItem{Text = "نیمه وقت", Value = "False"}
+                new SelectListItem{Text = "تمام وقت", Value = "true",Selected=true},
+                new SelectListItem{Text = "نیمه وقت", Value = "false",Selected=false}
             };
         return items;
     }
@@ -79,8 +80,8 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "بله", Value = "True"},
-                new SelectListItem{Text = "خیر", Value = "False"}
+                new SelectListItem{Text = "بله", Value = "true",Selected=true},
+                new SelectListItem{Text = "خیر", Value = "false",Selected=false}
             };
         return items;
     }
@@ -170,7 +171,7 @@ public class DropDown
                 new SelectListItem{Text = "1365", Value = "1365"},
                 new SelectListItem{Text = "1366", Value = "1366"},
                  new SelectListItem{Text = "1367", Value = "1367"},
-                new SelectListItem{Text = "1368", Value = "1368"},
+                new SelectListItem{Text = "1368", Value = "1368",Selected=true},
                 new SelectListItem{Text = "1369", Value = "1369"},
                 new SelectListItem{Text = "1370", Value = "1370"},
                 new SelectListItem{Text = "1371", Value = "1371"},

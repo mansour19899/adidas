@@ -14,35 +14,8 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/myScript.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            var _my_height = $(window).height();
-            $("._Header").css("height", _my_height);
-
-            // کلاس دکمه
-            $("#hi").click(function () {
-                $("._Header").fadeOut(1500);
-                $(".allcontentpage").fadeIn(1500);
-            });
-
-            $("#Person_Gender").change(function () {
-
-                var x = $(this).val();
-               
-                if ($(this).val() != "True") {
-                    $("#Person_MilitaryService").removeAttr("D");
-                }
-                else {
-                    alert("Reyhaneh");
-                }
- 
-          
-               
-            })
-        });
-
-    </script>
 
 
 
@@ -185,7 +158,7 @@
 
                             </p>
                             <p>
-                                @Html.TextBoxFor(p => p.Person.Children, new { @class = "form-control" })
+                                @Html.TextBoxFor(p => p.Person.Children, new { @class = "form-control", disabled = "disabled" })
                             </p>
                         </div>
                         <div class="col-lg-3 col-md-4 col-sm-6">
@@ -522,7 +495,7 @@
 
                             </p>
                             <p>
-                                @Html.DropDownListFor(p => p.Person.DaysNumber, DropDown.GetDaysList(), new { @class = "form-control _dropdown", style = " display: inline;" })
+                                @Html.DropDownListFor(p => p.Person.DaysNumber, DropDown.GetDaysList(), new { @class = "form-control _dropdown", style = " display: inline;", disabled = "disabled" })
                             </p>
                         </div>
 
@@ -541,7 +514,7 @@
                                 @Html.LabelFor(p => p.Person.Duration)<span>*</span>
                             </p>
                             <p>
-                                @Html.TextBoxFor(p => p.Person.Duration, new { @class = "form-control" })
+                                @Html.TextBoxFor(p => p.Person.Duration, new { @class = "form-control", disabled = "disabled" })
                             </p>
                         </div>
 
