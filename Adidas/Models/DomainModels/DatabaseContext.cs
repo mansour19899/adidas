@@ -10,7 +10,7 @@ namespace Adidas.Models.DomainModels
     {
         static DatabaseContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<DatabaseContext >());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DatabaseContext,Migrations.Configuration >());
         }
 
         public DbSet<Person> People { get; set; }

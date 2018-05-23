@@ -157,6 +157,7 @@
     <Compile Include="Helpers\Utilites\MessageBox.cs" />
     <Compile Include="Helpers\Utilites\MyPersianDate.cs" />
     <Compile Include="Helpers\Utilites\utilty.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DomainModels\DatabaseContext.cs" />
     <Compile Include="Models\DomainModels\JobRecord.cs" />
     <Compile Include="Models\DomainModels\Person.cs" />

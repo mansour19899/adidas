@@ -12,7 +12,7 @@ namespace Adidas.Models.DomainModels
 
     public  class Person
     {
-        
+        [Key]
         public int Id { get; set; }
         public string LastName { get; set; }
         public string Name { get; set; }
@@ -47,6 +47,7 @@ namespace Adidas.Models.DomainModels
         public byte[] image { get; set; }
         public Nullable<System.DateTime> RegPerson { get; set; }
 
+        
 
     }
 }
