@@ -7,11 +7,11 @@ namespace Adidas.Models.Repositores
 {
     public class PersonRepository : IDisposable
     {
-        private Adidas.Models.DomainModels.AdidasTehranEntities db = null;
+        private Adidas.Models.DomainModels.DatabaseContext db = null;
 
         public PersonRepository()
         {
-            db = new DomainModels.AdidasTehranEntities();
+            db = new DomainModels.DatabaseContext();
         }
 
         public bool Add(Adidas.Models.DomainModels.Person entity, bool autoSave = true)

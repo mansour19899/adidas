@@ -8,11 +8,11 @@ namespace Adidas.Models.Repositores
 
     public class JobRecordRepository : IDisposable
     {
-        private Adidas.Models.DomainModels.AdidasTehranEntities db = null;
+        private Adidas.Models.DomainModels.DatabaseContext db = null;
 
         public JobRecordRepository()
         {
-            db = new DomainModels.AdidasTehranEntities();
+            db = new DomainModels.DatabaseContext();
         }
 
         public bool Add(Adidas.Models.DomainModels.JobRecord entity, bool autoSave = true)

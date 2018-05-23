@@ -11,9 +11,14 @@ namespace Adidas.Controllers
 {
     public class HomeController : Controller
     {
+        private Adidas.Models.DomainModels.DatabaseContext db = null;
         public static int personId;
         public ActionResult Index()
         {
+            db = new Adidas.Models.DomainModels.DatabaseContext();
+
+            var t = db.JobRecords.ToList();
+
             return View();
          
         }
