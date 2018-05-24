@@ -14,6 +14,7 @@ namespace Adidas.Models.DomainModels
     public  class Person
     {
         [Key]
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
         [DisplayName(" نام خانوادگی")]
         [Display(Name = " نام خانوادگی")]
@@ -22,7 +23,7 @@ namespace Adidas.Models.DomainModels
         public string LastName { get; set; }
         [DisplayName("نام ")]
         [Display(Name = "نام ")]
-        [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+        [Required(ErrorMessage ="لطفا  {0} را وارد کنید", AllowEmptyStrings = false)]
         [Column("Firstname", TypeName = "NVARCHAR")]
         [MaxLength(20,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         public string Name { get; set; }
@@ -46,9 +47,11 @@ namespace Adidas.Models.DomainModels
         public Nullable<byte> Children { get; set; }
         [DisplayName("کدملی ")]
         [Display(Name = "کدملی ")]
-          [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
-        [MaxLength(10,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
+        [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+        [MaxLength(10, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
         [MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
+        //[RegularExpression("^[0-9]{9,10}$", ErrorMessage = "کد ملی خود را به درستی وارد کنید")]
 
         public string NationalCode { get; set; }
         [DisplayName("آدرس ")]
@@ -61,17 +64,20 @@ namespace Adidas.Models.DomainModels
         [MaxLength(15, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
         [MinLength(5, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
         [Required(ErrorMessage = "لطفا شماره  {0} را وارد کنید")]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
 
         public string Tell { get; set; }
         [DisplayName("موبایل ")]
         [Display(Name = "موبایل ")]
         [Required(ErrorMessage ="لطفا شماره  {0} را وارد کنید")]
-        [MaxLength(11, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
-        [MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
-        public string Mobile { get; set; }
+        //[MaxLength(11, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
+        //[MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
+        [RegularExpression(@"^0?9[123]\d{8}$", ErrorMessage = "شماره موبایل را بدرستی وارد کنید")]
+         public string Mobile { get; set; }
         [DisplayName("ایمیل ")]
         [Display(Name = "ایمیل ")]
         [EmailAddress(ErrorMessage ="ایمیل وارد شده صحیح نمی باشد")]
+     //   [RegularExpression(@"^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,4})$", ErrorMessage = "ایمیل را بدرستی وارد کنید")]
         public string Email { get; set; }
         [DisplayName("آخرین مدرک تحصیلی ")]
         [Display(Name = "آخرین مدرک تحصیلی ")]
@@ -111,6 +117,8 @@ namespace Adidas.Models.DomainModels
         [DisplayName("میزان حقوق درخواستی ")]
         [Display(Name = "میزان حقوق درخواستی ")]
         [Required(ErrorMessage = "لطفا  {0}  وارد کنید")]
+        [MaxLength(10, ErrorMessage = "مبلغ بیش از حد مجاز است")]
+        [RegularExpression("^[0-9,]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
 
         public string SalaryExpection { get; set; }
         [DisplayName("متقاضی کار ")]
@@ -139,6 +147,8 @@ namespace Adidas.Models.DomainModels
         //[NotMapped]
         //public int test { get; set; }
 
+        public virtual ICollection<JobRecord> JobRecord { get; set; }
+        public virtual ICollection<RelationShip> RelationShip { get; set; }
 
 
     }

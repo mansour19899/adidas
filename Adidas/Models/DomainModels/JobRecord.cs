@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 using System.Linq;
 using System.Web;
@@ -14,6 +15,7 @@ namespace Adidas.Models.DomainModels
     public  class JobRecord
     {
         [Key]
+        [ScaffoldColumn(false)]
         public int Id { get; set; }
         [DisplayName("نام موسسه")]
         [Display(Name = "نام موسسه")]
@@ -35,7 +37,7 @@ namespace Adidas.Models.DomainModels
         public string Tell { get; set; }
 
         public int Person_FK { get; set; }
-
+        [ForeignKey(" Person_FK")]
         public virtual Person Person { get; set; }
     }
 }

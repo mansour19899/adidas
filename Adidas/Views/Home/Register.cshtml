@@ -489,7 +489,8 @@
 
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
-                                @Html.LabelFor(p => p.Person.SalaryExpection)<span>*</span>
+                                @Html.LabelFor(p => p.Person.SalaryExpection)<span>*(برحسب ریال)</span>
+                                @Html.ValidationMessageFor(p => p.Person.SalaryExpection, "", new { @class = "text-danger" })
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.SalaryExpection, new { @class = "form-control" })

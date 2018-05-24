@@ -45,7 +45,9 @@ namespace Adidas.Controllers
             ViewBag.Month = date.MonthList;
             ViewBag.Year = date.YearList;
 
-            
+            //db = new Adidas.Models.DomainModels.DatabaseContext();
+
+            //var t = db.JobRecords.ToList();
 
             return View();
         }
