@@ -17,18 +17,18 @@ namespace Adidas.Migrations
 
         protected override void Seed(Adidas.Models.DomainModels.DatabaseContext context)
         {
-            DatabaseContext db = new DatabaseContext();
+            //DatabaseContext db = new DatabaseContext();
             
-            if(db.People.Count()==0)
-            {
-                Person per = new Person()
-                {
-                    Name = "manour",
-                    LastName = "mohammadi"
-                };
-                db.People.Add(per);
-                db.SaveChanges();
-            }
+            //if(db.People.Count()==0)
+            //{
+            //    Person per = new Person()
+            //    {
+            //        Name = "manour",
+            //        LastName = "mohammadi"
+            //    };
+            //    db.People.Add(per);
+            //    db.SaveChanges();
+            //}
 
 
         }

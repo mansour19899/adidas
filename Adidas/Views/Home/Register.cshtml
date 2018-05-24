@@ -84,6 +84,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.Name)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.Name, "", new { @class = "text-danger" })
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.Name, new { @class = "form-control" })
@@ -93,15 +94,18 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.LastName)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.LastName, "", new { @class = "text-danger" })
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.LastName, new { @class = "form-control" })
+                             
                             </p>
                         </div>
 
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.Father)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.Father, "", new { @class = "text-danger" })
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.Father, new { @class = "form-control" })
@@ -111,6 +115,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.NationalCode)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.NationalCode, "", new { @class = "text-danger" })
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.NationalCode, new { @class = "form-control" })
@@ -158,12 +163,15 @@
 
                             </p>
                             <p>
-                                @Html.TextBoxFor(p => p.Person.Children, new { @class = "form-control", disabled = "disabled" })
+                                @Html.DropDownListFor(p => p.Person.Children, DropDown.GetCountOfChildernList(), new { @class = "form-control _dropdown", style = " display: inline; ", disabled = "disabled" })
+
                             </p>
                         </div>
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.Mobile)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.Mobile, "", new { @class = "text-danger" })
+
 
                             </p>
                             <p>
@@ -172,7 +180,8 @@
                         </div>
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
-                                @Html.LabelFor(p => p.Person.Tell)
+                                @Html.LabelFor(p => p.Person.Tell)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.Tell, "", new { @class = "text-danger" })
 
                             </p>
                             <p>
@@ -181,7 +190,9 @@
                         </div>
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
-                                @Html.LabelFor(p => p.Person.Email)<span>*</span>
+                                @Html.LabelFor(p => p.Person.Email)
+                                @Html.ValidationMessageFor(p => p.Person.Email, "", new { @class = "text-danger" })
+
 
                             </p>
                             <p>
@@ -191,6 +202,8 @@
                         <div class="col-lg-12 col-md-12">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.Address)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.Address, "", new { @class = "text-danger" })
+
 
 
                             </p>
@@ -233,6 +246,8 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.Institute)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.Institute, "", new { @class = "text-danger" })
+
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.Institute, new { @class = "form-control" })
@@ -242,6 +257,8 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.Field)<span>*</span>
+                                @Html.ValidationMessageFor(p => p.Person.Field, "", new { @class = "text-danger" })
+
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.Field, new { @class = "form-control" })
@@ -514,7 +531,8 @@
                                 @Html.LabelFor(p => p.Person.Duration)<span>*</span>
                             </p>
                             <p>
-                                @Html.TextBoxFor(p => p.Person.Duration, new { @class = "form-control", disabled = "disabled" })
+                                @Html.DropDownListFor(p => p.Person.Duration, DropDown.GetDurationOfWorkList(), new { @class = "form-control _dropdown", style = " display: inline;", disabled = "disabled" })
+
                             </p>
                         </div>
 

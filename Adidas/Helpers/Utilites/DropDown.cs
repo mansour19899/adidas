@@ -20,6 +20,19 @@ public class DropDown
         return items;
     }
 
+    public static IEnumerable<SelectListItem> GetCountOfChildernList()
+    {
+        List<SelectListItem> items = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "ندارم", Value = "0",Selected=true},
+                new SelectListItem{Text = "1", Value = "1",Selected=false},
+                new SelectListItem{Text = "2", Value = "2",Selected=false},
+                new SelectListItem{Text = "3", Value = "3",Selected=false},
+                new SelectListItem{Text = "4", Value = "4",Selected=false},
+            };
+        return items;
+    }
+
     public static IEnumerable<SelectListItem> GetDegreeList()
     {
         List<SelectListItem> items = new List<SelectListItem>
@@ -38,8 +51,8 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "ابتدایی", Value = "1",Selected=false},
-                new SelectListItem{Text = "متوسط", Value = "2",Selected=true},
+                new SelectListItem{Text = "ابتدایی", Value = "1",Selected=true},
+                new SelectListItem{Text = "متوسط", Value = "2",Selected=false},
                 new SelectListItem{Text = "خوب", Value = "3",Selected=false}
 
             };
@@ -184,6 +197,20 @@ public class DropDown
                  new SelectListItem{Text = "1378", Value = "1378"},
                 new SelectListItem{Text = "1379", Value = "1379"}
 
+            };
+        return items;
+    }
+
+    public static IEnumerable<SelectListItem> GetDurationOfWorkList()
+    {
+        List<SelectListItem> items = new List<SelectListItem>
+            {
+               new SelectListItem{Text = "------------------------", Value = "0",Selected=true},
+                new SelectListItem{Text = "شش ماه", Value = "1",Selected=false},
+                new SelectListItem{Text = " یک سال", Value = "2",Selected=false},
+                new SelectListItem{Text = "یک سال و شش ماه", Value = "3",Selected=false},
+                new SelectListItem{Text = "دو سال", Value = "4",Selected=false},
+                new SelectListItem{Text = "دو سال و شش ماه", Value = "5",Selected=false},
             };
         return items;
     }

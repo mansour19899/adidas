@@ -1,7 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,45 +10,136 @@ using System.Web;
 namespace Adidas.Models.DomainModels
 {
 
-
+    [Table("tblPerson")]
     public  class Person
     {
         [Key]
         public int Id { get; set; }
+        [DisplayName(" نام خانوادگی")]
+        [Display(Name = " نام خانوادگی")]
+        [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+        [MaxLength(20,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         public string LastName { get; set; }
+        [DisplayName("نام ")]
+        [Display(Name = "نام ")]
+        [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+        [Column("Firstname", TypeName = "NVARCHAR")]
+        [MaxLength(20,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         public string Name { get; set; }
+        [DisplayName(" نام پدر ")]
+        [Display(Name = "نام پدر ")]
+          [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+       [MaxLength(20,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         public string Father { get; set; }
+        [DisplayName("تاریخ تولد ")]
+        [Display(Name = "تاریخ تولد ")]
+          [Required(ErrorMessage ="لطفا  {0}   را وارد کنید")]
         public Nullable<System.DateTime> BirthDay { get; set; }
+        [DisplayName("وضعیت نظام وظیفه ")]
+        [Display(Name = "وضعیت نظام وظیفه ")]
         public Nullable<byte> MilitaryService { get; set; }
+        [DisplayName("وضعیت تاهل ")]
+        [Display(Name = "وضعیت تاهل ")]
         public bool Marriage { get; set; }
+        [DisplayName("تعداد فرزندان ")]
+        [Display(Name = "تعداد فرزندان ")]
         public Nullable<byte> Children { get; set; }
+        [DisplayName("کدملی ")]
+        [Display(Name = "کدملی ")]
+          [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+        [MaxLength(10,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
+        [MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
+
         public string NationalCode { get; set; }
+        [DisplayName("آدرس ")]
+        [Display(Name = "آدرس ")]
+          [Required(ErrorMessage ="لطفا مقدار {0}  وارد کنید")]
+         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
+        [DisplayName("تلفن ")]
+        [Display(Name = "تلفن ")]
+        [MaxLength(15, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
+        [MinLength(5, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
+        [Required(ErrorMessage = "لطفا شماره  {0} را وارد کنید")]
+
         public string Tell { get; set; }
+        [DisplayName("موبایل ")]
+        [Display(Name = "موبایل ")]
+        [Required(ErrorMessage ="لطفا شماره  {0} را وارد کنید")]
+        [MaxLength(11, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
+        [MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
         public string Mobile { get; set; }
+        [DisplayName("ایمیل ")]
+        [Display(Name = "ایمیل ")]
+        [EmailAddress(ErrorMessage ="ایمیل وارد شده صحیح نمی باشد")]
         public string Email { get; set; }
+        [DisplayName("آخرین مدرک تحصیلی ")]
+        [Display(Name = "آخرین مدرک تحصیلی ")]
         public Nullable<byte> Degree { get; set; }
+        [DisplayName("نام موسسه ")]
+        [Display(Name = "نام موسسه ")]
+        [Required(ErrorMessage = "لطفا  {0}  وارد کنید")]
         public string Institute { get; set; }
+        [DisplayName("رشته تحصیلی ")]
+        [Display(Name = "رشته تحصیلی ")]
+        [Required(ErrorMessage = "لطفا نام {0}  وارد کنید")]
         public string Field { get; set; }
+        [DisplayName("آشنایی با زبان خارجه ")]
+        [Display(Name = "آشنایی با زبان خارجه ")]
         public Nullable<byte> EnglishKnowledge { get; set; }
+        [DisplayName("Excel ")]
+        [Display(Name = "Excel ")]
         public bool Excel { get; set; }
+        [DisplayName("Word ")]
+        [Display(Name = "Word ")]
         public bool Word { get; set; }
+        [DisplayName("Outlook ")]
+        [Display(Name = "Outlook ")]
         public bool Outlook { get; set; }
+        [DisplayName("PowerPoint ")]
+        [Display(Name = "PowerPoint ")]
         public bool PowerPoint { get; set; }
+        [DisplayName("حسابداری ")]
+        [Display(Name = "حسابداری ")]
         public bool Accounting { get; set; }
+        [DisplayName("غیره . ذکر نرم افزار ")]
+        [Display(Name = "غیره . ذکر نرم افزار ")]
         public string OtherSoftwer { get; set; }
+        [DisplayName("دوره های کامپیوتری ")]
+        [Display(Name = "دوره های کامپیوتری ")]
         public string Skills { get; set; }
+        [DisplayName("میزان حقوق درخواستی ")]
+        [Display(Name = "میزان حقوق درخواستی ")]
+        [Required(ErrorMessage = "لطفا  {0}  وارد کنید")]
+
         public string SalaryExpection { get; set; }
+        [DisplayName("متقاضی کار ")]
+        [Display(Name = "متقاضی کار ")]
         public bool JobStatus { get; set; }
+        [DisplayName("چند روز در هفته ")]
+        [Display(Name = "چند روز در هفته ")]
         public Nullable<byte> DaysNumber { get; set; }
+        [DisplayName("آیا تعهد کاری 3 سال کار را می دهید؟ ")]
+        [Display(Name = "آیا تعهد 3 سال کار را می دهید؟ ")]
         public bool WorkingGuranty { get; set; }
-        public string Duration { get; set; }
+        [DisplayName("مدت تعهد کاری ")]
+        [Display(Name = "مدت تعهد کاری ")]
+        public Nullable<byte> Duration { get; set; }
+        [DisplayName("آیا در صورت همکاری مشکلی برای پرداخت ضمانت دارید؟ ")]
+        [Display(Name = "آیا در صورت همکاری مشکلی برای پرداخت ضمانت دارید؟ ")]
         public bool GurantyPayment { get; set; }
+        [DisplayName("جنسیت ")]
+        [Display(Name = "جنسیت ")]
         public bool Gender { get; set; }
         public byte[] image { get; set; }
+        [DisplayName("تاریخ ثبت نام ")]
+        [Display(Name = "تاریخ ثبت نام ")]
         public Nullable<System.DateTime> RegPerson { get; set; }
 
-        
+        //[NotMapped]
+        //public int test { get; set; }
+
+
 
     }
 }
