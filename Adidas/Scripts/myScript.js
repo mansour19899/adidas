@@ -1,11 +1,21 @@
 ﻿$(document).ready(function () {
+
     var _my_height = $(window).height();
+    var _my_bootom = $(window).width()/2-100;
     $("._Header").css("height", _my_height);
+    $("#hi").css("right", _my_bootom);
 
     // کلاس دکمه
     $("#hi").click(function () {
         $("._Header").fadeOut(1500);
         $(".allcontentpage").fadeIn(1500);
+    });
+
+    $(window).resize(function () {
+        var _my_height = $(window).height();
+        var _my_bootom = $(window).width() / 2 - 100;
+        $("._Header").css("height", _my_height);
+        $("#hi").css("right", _my_bootom);
     });
 
     $("#Person_Gender").change(function () {
@@ -85,18 +95,19 @@
       
     })
 
-    //$("#Person_SalaryExpection").change(function () {
+    $("#RelationShip1_Moaref").change(function () {
 
-    //    var number = typeof $(this).val() === "number" ? $(this).val().toString() : $(this).val();
-    //    numberr = number.replace(',', '');
-    //    var numberrr = numberr.replace(',', '');
-    //    var numberrrr = numberrr.replace(',', '');
-     
        
 
-    //    $(this).val(numberrrr);
+        if ($(this).val() == "true") {
+            $("#moaref").text("معرف");
+            
 
+        }
+        else {
+            $("#moaref").text("ردیف 1");
+        }
 
-    //})
+    })
 
 });
