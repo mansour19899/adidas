@@ -18,7 +18,7 @@ namespace Adidas.Models.DomainModels
         public int Id { get; set; }
         [DisplayName(" نام خانوادگی")]
         [Display(Name = " نام خانوادگی")]
-        [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+        [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]    
         [MaxLength(20,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         public string LastName { get; set; }
         [DisplayName("نام ")]
@@ -50,8 +50,8 @@ namespace Adidas.Models.DomainModels
         [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
         [MaxLength(10, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
         [MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
-        [RegularExpression("^[0-9]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
-        //[RegularExpression("^[0-9]{9,10}$", ErrorMessage = "کد ملی خود را به درستی وارد کنید")]
+        [RegularExpression("^[0-9,۰۱۲۳۴۵۶۷۸۹]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
+        //[RegularExpression("^[0-9]{10}$", ErrorMessage = "کد ملی خود را به درستی وارد کنید")]
 
         public string NationalCode { get; set; }
         [DisplayName("آدرس ")]
@@ -65,7 +65,8 @@ namespace Adidas.Models.DomainModels
         [MaxLength(15, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
         [MinLength(5, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
         [Required(ErrorMessage = "لطفا شماره  {0} را وارد کنید")]
-        [RegularExpression("^[0-9]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
+        [RegularExpression("^[0-9,۰۱۲۳۴۵۶۷۸۹]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
+       
 
         public string Tell { get; set; }
         [DisplayName("موبایل ")]
@@ -74,7 +75,7 @@ namespace Adidas.Models.DomainModels
         [MaxLength(12, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         //[MaxLength(11, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
         //[MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
-        [RegularExpression(@"^0?9[123]\d{8}$", ErrorMessage = "شماره موبایل را بدرستی وارد کنید")]
+        [RegularExpression(@"^[0۰]?[9۹]([123۱۲۳])([0-9,۰۱۲۳۴۵۶۷۸۹]{8})$", ErrorMessage = "شماره موبایل را بدرستی وارد کنید")]
          public string Mobile { get; set; }
         [DisplayName("ایمیل ")]
         [Display(Name = "ایمیل ")]
@@ -120,7 +121,7 @@ namespace Adidas.Models.DomainModels
         [Display(Name = "میزان حقوق درخواستی ")]
         [Required(ErrorMessage = "لطفا  {0}  وارد کنید")]
         [MaxLength(10, ErrorMessage = "مبلغ بیش از حد مجاز است")]
-        [RegularExpression("^[0-9,]*$", ErrorMessage = "{0} نباید شامل حروف باشد")]
+        [RegularExpression("^[0-9,۰۱۲۳۴۵۶۷۸۹]*$", ErrorMessage = " نباید شامل حروف باشد")]
 
         public string SalaryExpection { get; set; }
         [DisplayName("متقاضی کار ")]
