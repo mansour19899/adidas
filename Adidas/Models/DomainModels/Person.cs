@@ -29,7 +29,7 @@ namespace Adidas.Models.DomainModels
         public string Name { get; set; }
         [DisplayName(" نام پدر ")]
         [Display(Name = "نام پدر ")]
-          [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
+        [Required(ErrorMessage ="لطفا  {0} را وارد کنید")]
        [MaxLength(20,ErrorMessage ="لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         public string Father { get; set; }
         [DisplayName("تاریخ تولد ")]
@@ -57,7 +57,8 @@ namespace Adidas.Models.DomainModels
         [DisplayName("آدرس ")]
         [Display(Name = "آدرس ")]
           [Required(ErrorMessage ="لطفا مقدار {0}  وارد کنید")]
-         [DataType(DataType.MultilineText)]
+        [MaxLength(200, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
+        [DataType(DataType.MultilineText)]
         public string Address { get; set; }
         [DisplayName("تلفن ")]
         [Display(Name = "تلفن ")]
@@ -70,6 +71,7 @@ namespace Adidas.Models.DomainModels
         [DisplayName("موبایل ")]
         [Display(Name = "موبایل ")]
         [Required(ErrorMessage ="لطفا شماره  {0} را وارد کنید")]
+        [MaxLength(12, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         //[MaxLength(11, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} رقم وارد نکنید")]
         //[MinLength(10, ErrorMessage = "لطفا مقدار  {0} را کمتر از {1} رقم وارد نکنید")]
         [RegularExpression(@"^0?9[123]\d{8}$", ErrorMessage = "شماره موبایل را بدرستی وارد کنید")]
