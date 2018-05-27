@@ -18,8 +18,8 @@
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/myScript.js"></script>
 </head>
-<body>
-    <div>
+<body class="container-fluid">
+    <div style="padding-top: 50px; padding-left: 20px; padding-right: 20px;">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h1 class="panel-title">اطلاعات فردی</h1>
@@ -29,173 +29,204 @@
                     <div class="col-lg-6">
                         <p>
                             @Html.LabelFor(p => p.Person.Name):
-                            @Html.DisplayFor(p => p.Person.Name)
+                            <span>@Html.DisplayFor(p => p.Person.Name)</span>
+
 
                         </p>
                         <p>
                             @Html.LabelFor(p => p.Person.LastName):
-                            @Html.DisplayFor(p => p.Person.LastName)
+                            <span>@Html.DisplayFor(p => p.Person.LastName)</span>
+
 
                         </p>
                         <p>
                             @Html.LabelFor(p => p.Person.Father):
-                            @Html.DisplayFor(p => p.Person.Father)
+                            <span>@Html.DisplayFor(p => p.Person.Father)</span>
+
 
                         </p>
                         <p>
                             @Html.LabelFor(p => p.Person.NationalCode):
-                            @Html.DisplayFor(p => p.Person.NationalCode)
+                            <span>@Html.DisplayFor(p => p.Person.NationalCode)</span>
+
 
                         </p>
                         <p>
                             @Html.LabelFor(p => p.Person.Gender):
-                       
+                            @{
+                                if (Model.Person.Gender)
+                                {
+                                    <span>مرد</span>
+                                }
+                                else
+                                {
+                                    <span>زن</span>
+
+                                }
+
+
+                            }
+
 
                         </p>
                         <p>
-                            @Html.LabelFor(p => p.Person.Father):
-                            @Html.DisplayFor(p => p.Person.Father)
+                            @Html.LabelFor(p => p.Person.MilitaryService):
+                            @{
+                                var t = DropDown.GetMilitaryList();
+                                if (Model.Person.MilitaryService == 0)
+                                {
+
+                                    <span>@t.ElementAt(0).Text</span>
+                                }
+                                else if (Model.Person.MilitaryService == 1)
+                                {
+                                    <span>@t.ElementAt(1).Text</span>
+                                }
+                                else if (Model.Person.MilitaryService == 2)
+                                {
+                                    <span>@t.ElementAt(2).Text</span>
+                                }
+                                else if (Model.Person.MilitaryService == 3)
+                                {
+                                    <span>@t.ElementAt(3).Text</span>
+                                }
+                                else if (Model.Person.MilitaryService == 4)
+                                {
+                                    <span>@t.ElementAt(4).Text</span>
+
+                                }
+
+
+
+                            }
 
                         </p>
                         <p>
-                            @Html.LabelFor(p => p.Person.Father):
-                            @Html.DisplayFor(p => p.Person.Father)
+                            @Html.LabelFor(p => p.Person.BirthDay):
+                            @{
+                                <span> @Model.Person.BirthDay.Value.ToPersianDateString()</span>
+                            }
+
 
                         </p>
 
 
                     </div>
-                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+
+                        <p>
+                            @Html.LabelFor(p => p.Person.Marriage):
+                            @{
+                                if (Model.Person.Gender)
+                                {
+                                    <span>مجرد</span>
+                                }
+                                else
+                                {
+                                    <span>متاهل</span>
+
+                                }
+
+
+                            }
+
+
+                            @{
+                                if (!Model.Person.Gender)
+                                {
+
+                                <p>
+                                    @Html.LabelFor(p => p.Person.Children):
+                                    @{
+                                        var tt = DropDown.GetCountOfChildernList();
+                                        if (Model.Person.Children == null)
+                                        {
+
+                                            <span>@t.ElementAt(0).Text</span>
+                                        }
+                                        else if (Model.Person.Children == 0)
+                                        {
+                                            <span>@t.ElementAt(0).Text</span>
+                                        }
+                                        else if (Model.Person.Children == 1)
+                                        {
+                                            <span>@t.ElementAt(1).Text</span>
+                                        }
+                                        else if (Model.Person.Children == 2)
+                                        {
+                                            <span>@t.ElementAt(2).Text</span>
+                                        }
+                                        else if (Model.Person.Children == 3)
+                                        {
+                                            <span>@t.ElementAt(3).Text</span>
+                                        }
+                                        else if (Model.Person.Children == 4)
+                                        {
+                                            <span>@t.ElementAt(4).Text</span>
+
+                                        }
+
+
+
+                                    }
+
+                                </p>
+                            }
+                            }
+
+                            <p>
+                                @Html.LabelFor(p => p.Person.Mobile):
+                                <span>@Html.DisplayFor(p => p.Person.Mobile)</span>
+
+
+                            </p>
+                            <p>
+                                @Html.LabelFor(p => p.Person.Tell):
+                                <span>@Html.DisplayFor(p => p.Person.Tell)</span>
+
+
+                            </p>
+                            <p>
+                                @Html.LabelFor(p => p.Person.Email):
+                                @{
+                                    if (Model.Person.Email == null)
+                                    {
+                                        <span>ندارد</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@Html.DisplayFor(p => p.Person.Father)</span>
+                                    }
+                                }
+
+
+
+                            </p>
+                            <p>
+                                @Html.LabelFor(p => p.Person.Address):
+                                <span>@Html.DisplayFor(p => p.Person.Address)</span>
+
+
+                            </p>
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+
+                    </div>
+
+
+
                 </div>
-
-                <div class="row">
-                 
-
-      
-
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Father)<span>*</span>
-                            @Html.ValidationMessageFor(p => p.Person.Father, "", new { @class = "text-danger" })
-                        </p>
-                        <p>
-                            @Html.TextBoxFor(p => p.Person.Father, new { @class = "form-control" })
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.NationalCode)<span>*</span>
-                            @Html.ValidationMessageFor(p => p.Person.NationalCode, "", new { @class = "text-danger" })
-                        </p>
-                        <p>
-                            @Html.TextBoxFor(p => p.Person.NationalCode, new { @class = "form-control" })
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Gender)<span>*</span>
-                        </p>
-                        <p>
-                            @Html.DropDownListFor(p => p.Person.Gender, DropDown.GetGenderList(), new { @class = "form-control _dropdown", style = " display: inline;" })
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.MilitaryService)<span>*</span>
-
-                        </p>
-                        <p>
-                            @Html.DropDownListFor(p => p.Person.MilitaryService, DropDown.GetMilitaryList(), new { @class = "form-control _dropdown", style = " display: inline;" })
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.BirthDay)
-                        </p>
-                        <p>
-                            @Html.DropDownListFor(p => p.Date.Day, DropDown.GetDay(), new { @class = " _date form-control " })
-                            @Html.DropDownListFor(p => p.Date.Month, DropDown.GetMounth(), new { @class = " _date form-control " })
-                            @Html.DropDownListFor(p => p.Date.Year, DropDown.GetYear(), new { @class = " _date form-control " })
-
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Marriage)<span>*</span>
-                        </p>
-                        <p>
-                            @Html.DropDownListFor(p => p.Person.Marriage, DropDown.GetMarrigeList(), new { @class = "form-control _dropdown", style = " display: inline; " })
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Children)<span>*</span>
-
-                        </p>
-                        <p>
-                            @Html.DropDownListFor(p => p.Person.Children, DropDown.GetCountOfChildernList(), new { @class = "form-control _dropdown", style = " display: inline; ", disabled = "disabled" })
-
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Mobile)<span>*</span>
-                            @Html.ValidationMessageFor(p => p.Person.Mobile, "", new { @class = "text-danger" })
-
-
-                        </p>
-                        <p>
-                            @Html.TextBoxFor(p => p.Person.Mobile, new { @class = "form-control", placeholder = "----------0919" })
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Tell)<span>*</span>
-                            @Html.ValidationMessageFor(p => p.Person.Tell, "", new { @class = "text-danger" })
-
-                        </p>
-                        <p>
-                            @Html.TextBoxFor(p => p.Person.Tell, new { @class = "form-control" })
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Email)
-                            @Html.ValidationMessageFor(p => p.Person.Email, "", new { @class = "text-danger" })
-
-
-                        </p>
-                        <p>
-                            @Html.TextBoxFor(p => p.Person.Email, new { @class = "form-control" })
-                        </p>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <p class="_label">
-                            @Html.LabelFor(p => p.Person.Address)<span>*</span>
-                            @Html.ValidationMessageFor(p => p.Person.Address, "", new { @class = "text-danger" })
-
-
-
-                        </p>
-                        <p>
-                            @Html.TextBoxFor(p => p.Person.Address, new { @class = "form-control", style = " max-width: 2000px;" })
-                        </p>
-                    </div>
-
-
-
-
-                </div>
-
-
-                <div class="row">
-
-                </div>
-
-
-
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>
