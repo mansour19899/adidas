@@ -1,0 +1,201 @@
+﻿@model Adidas.ViewModels.PersonInfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/myScript.js"></script>
+</head>
+<body>
+    <div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h1 class="panel-title">اطلاعات فردی</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>
+                            @Html.LabelFor(p => p.Person.Name):
+                            @Html.DisplayFor(p => p.Person.Name)
+
+                        </p>
+                        <p>
+                            @Html.LabelFor(p => p.Person.LastName):
+                            @Html.DisplayFor(p => p.Person.LastName)
+
+                        </p>
+                        <p>
+                            @Html.LabelFor(p => p.Person.Father):
+                            @Html.DisplayFor(p => p.Person.Father)
+
+                        </p>
+                        <p>
+                            @Html.LabelFor(p => p.Person.NationalCode):
+                            @Html.DisplayFor(p => p.Person.NationalCode)
+
+                        </p>
+                        <p>
+                            @Html.LabelFor(p => p.Person.Gender):
+                       
+
+                        </p>
+                        <p>
+                            @Html.LabelFor(p => p.Person.Father):
+                            @Html.DisplayFor(p => p.Person.Father)
+
+                        </p>
+                        <p>
+                            @Html.LabelFor(p => p.Person.Father):
+                            @Html.DisplayFor(p => p.Person.Father)
+
+                        </p>
+
+
+                    </div>
+                    <div class="col-lg-6"></div>
+                </div>
+
+                <div class="row">
+                 
+
+      
+
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Father)<span>*</span>
+                            @Html.ValidationMessageFor(p => p.Person.Father, "", new { @class = "text-danger" })
+                        </p>
+                        <p>
+                            @Html.TextBoxFor(p => p.Person.Father, new { @class = "form-control" })
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.NationalCode)<span>*</span>
+                            @Html.ValidationMessageFor(p => p.Person.NationalCode, "", new { @class = "text-danger" })
+                        </p>
+                        <p>
+                            @Html.TextBoxFor(p => p.Person.NationalCode, new { @class = "form-control" })
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Gender)<span>*</span>
+                        </p>
+                        <p>
+                            @Html.DropDownListFor(p => p.Person.Gender, DropDown.GetGenderList(), new { @class = "form-control _dropdown", style = " display: inline;" })
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.MilitaryService)<span>*</span>
+
+                        </p>
+                        <p>
+                            @Html.DropDownListFor(p => p.Person.MilitaryService, DropDown.GetMilitaryList(), new { @class = "form-control _dropdown", style = " display: inline;" })
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.BirthDay)
+                        </p>
+                        <p>
+                            @Html.DropDownListFor(p => p.Date.Day, DropDown.GetDay(), new { @class = " _date form-control " })
+                            @Html.DropDownListFor(p => p.Date.Month, DropDown.GetMounth(), new { @class = " _date form-control " })
+                            @Html.DropDownListFor(p => p.Date.Year, DropDown.GetYear(), new { @class = " _date form-control " })
+
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Marriage)<span>*</span>
+                        </p>
+                        <p>
+                            @Html.DropDownListFor(p => p.Person.Marriage, DropDown.GetMarrigeList(), new { @class = "form-control _dropdown", style = " display: inline; " })
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Children)<span>*</span>
+
+                        </p>
+                        <p>
+                            @Html.DropDownListFor(p => p.Person.Children, DropDown.GetCountOfChildernList(), new { @class = "form-control _dropdown", style = " display: inline; ", disabled = "disabled" })
+
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Mobile)<span>*</span>
+                            @Html.ValidationMessageFor(p => p.Person.Mobile, "", new { @class = "text-danger" })
+
+
+                        </p>
+                        <p>
+                            @Html.TextBoxFor(p => p.Person.Mobile, new { @class = "form-control", placeholder = "----------0919" })
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Tell)<span>*</span>
+                            @Html.ValidationMessageFor(p => p.Person.Tell, "", new { @class = "text-danger" })
+
+                        </p>
+                        <p>
+                            @Html.TextBoxFor(p => p.Person.Tell, new { @class = "form-control" })
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Email)
+                            @Html.ValidationMessageFor(p => p.Person.Email, "", new { @class = "text-danger" })
+
+
+                        </p>
+                        <p>
+                            @Html.TextBoxFor(p => p.Person.Email, new { @class = "form-control" })
+                        </p>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <p class="_label">
+                            @Html.LabelFor(p => p.Person.Address)<span>*</span>
+                            @Html.ValidationMessageFor(p => p.Person.Address, "", new { @class = "text-danger" })
+
+
+
+                        </p>
+                        <p>
+                            @Html.TextBoxFor(p => p.Person.Address, new { @class = "form-control", style = " max-width: 2000px;" })
+                        </p>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="row">
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

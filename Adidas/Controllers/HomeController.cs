@@ -45,9 +45,7 @@ namespace Adidas.Controllers
             ViewBag.Month = date.MonthList;
             ViewBag.Year = date.YearList;
 
-            //db = new Adidas.Models.DomainModels.DatabaseContext();
 
-            //var t = db.JobRecords.ToList();
 
             return View();
         }
@@ -57,6 +55,11 @@ namespace Adidas.Controllers
             personId = 0;
             per.Person.BirthDay = (per.Date.Year + "/" + per.Date.Month + "/" + per.Date.Day).ToGeorgianDateTime();
             per.Person.RegPerson = DateTime.Now;
+
+            per.Person.NationalCode = per.Person.NationalCode.ConvertNumbersToEnglish();
+            per.Person.Mobile = per.Person.Mobile.ConvertNumbersToEnglish();
+            per.Person.Tell = per.Person.Tell.ConvertNumbersToEnglish();
+            per.Person.SalaryExpection = per.Person.SalaryExpection.Replace(",", string.Empty).ConvertNumbersToEnglish();
 
             PersonRepository blPerson = new PersonRepository();
             JobRecordRepository blJob = new JobRecordRepository();
@@ -92,6 +95,21 @@ namespace Adidas.Controllers
             else
                 return MessageBox.Show(" ثبت نشد", MessageType.Error);
             //return View();
+        }
+
+        public ActionResult Info()
+        {
+
+            PersonRepository blPerson = new PersonRepository();
+            JobRecordRepository blJob = new JobRecordRepository();
+            RelationShipRepository blRelation = new RelationShipRepository();
+
+            PersonInfo infoo = new PersonInfo();
+
+            var t = blPerson.Find(4);
+            infoo.Person = t;
+
+            return View(infoo);
         }
 
 
