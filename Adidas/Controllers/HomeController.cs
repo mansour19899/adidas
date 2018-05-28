@@ -20,7 +20,7 @@ namespace Adidas.Controllers
             var t = db.JobRecords.ToList();
 
             return View();
-         
+
         }
 
         public ActionResult About()
@@ -40,7 +40,7 @@ namespace Adidas.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-          DateOfBirth date= new DateOfBirth();
+            DateOfBirth date = new DateOfBirth();
             ViewBag.Day = date.DayList;
             ViewBag.Month = date.MonthList;
             ViewBag.Year = date.YearList;
@@ -59,13 +59,14 @@ namespace Adidas.Controllers
             per.Person.NationalCode = per.Person.NationalCode.ConvertNumbersToEnglish();
             per.Person.Mobile = per.Person.Mobile.ConvertNumbersToEnglish();
             per.Person.Tell = per.Person.Tell.ConvertNumbersToEnglish();
-            per.Person.SalaryExpection = per.Person.SalaryExpection.Replace(",", string.Empty).ConvertNumbersToEnglish();
+            //per.Person.SalaryExpection = per.Person.SalaryExpection.Replace(",", string.Empty).ConvertNumbersToEnglish();
+            per.Person.SalaryExpection = per.Person.SalaryExpection.ConvertNumbersToEnglish();
 
             PersonRepository blPerson = new PersonRepository();
             JobRecordRepository blJob = new JobRecordRepository();
             RelationShipRepository blRelation = new RelationShipRepository();
 
-            if(blPerson.Add(per.Person))
+            if (blPerson.Add(per.Person))
             {
                 per.JobRecord1.Person_FK = personId;
                 per.JobRecord2.Person_FK = personId;
@@ -75,9 +76,9 @@ namespace Adidas.Controllers
                 per.RelationShip2.Person_FK = personId;
                 per.RelationShip3.Person_FK = personId;
 
-                if (per.JobRecord1.Company!=null)
-                blJob.Add(per.JobRecord1);
-               if (per.JobRecord2.Company != null)
+                if (per.JobRecord1.Company != null)
+                    blJob.Add(per.JobRecord1);
+                if (per.JobRecord2.Company != null)
                     blJob.Add(per.JobRecord2);
                 if (per.JobRecord3.Company != null)
                     blJob.Add(per.JobRecord3);
@@ -91,13 +92,13 @@ namespace Adidas.Controllers
 
                 return MessageBox.Show("با موفقیت ثبت شد", MessageType.Success);
             }
-      
+
             else
                 return MessageBox.Show(" ثبت نشد", MessageType.Error);
             //return View();
         }
 
-        public ActionResult Info()
+        public ActionResult Info(int id=5)
         {
 
             PersonRepository blPerson = new PersonRepository();
@@ -106,8 +107,24 @@ namespace Adidas.Controllers
 
             PersonInfo infoo = new PersonInfo();
 
-            var t = blPerson.Find(4);
+            var t = blPerson.Find(id);
+            var tt = blJob.Where(p => p.Person_FK == t.Id).ToList();
+            var ttt = blRelation.Where(p => p.Person_FK == t.Id).ToList();
             infoo.Person = t;
+
+            if (tt.Count() > 0)
+                infoo.JobRecord1 = tt.ElementAt(0);
+            if (tt.Count() > 1)
+                infoo.JobRecord2 = tt.ElementAt(1);
+            if (tt.Count() > 2)
+                infoo.JobRecord3 = tt.ElementAt(2);
+
+            if (ttt.Count() > 0)
+                infoo.RelationShip1 = ttt.ElementAt(0);
+            if (ttt.Count() > 1)
+                infoo.RelationShip2 = ttt.ElementAt(1);
+            if (ttt.Count() > 2)
+                infoo.RelationShip3 = ttt.ElementAt(2);
 
             return View(infoo);
         }

@@ -92,7 +92,7 @@
         
         $(this).val(numberrrrrrr.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1" + ','));
 
-        $(this).val(numberrrrrrr.replace(/(\w)(?=(\w\w\w)+(?!\w))/g, "$1" + ','));
+      
 
       
     })
