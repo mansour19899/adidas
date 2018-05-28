@@ -147,6 +147,10 @@ namespace Adidas.Models.DomainModels
         [Display(Name = "تاریخ ثبت نام ")]
         public Nullable<System.DateTime> RegPerson { get; set; }
 
+        [DisplayName("Checked ")]
+        [Display(Name = "Checked ")]
+        public bool Checked { get; set; }
+
         //[NotMapped]
         //public int test { get; set; }
 
