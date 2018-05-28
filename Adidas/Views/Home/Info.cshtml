@@ -311,18 +311,22 @@
                                 @Html.LabelFor(p => p.Person.EnglishKnowledge):
                                 @{
                                     var tttt = DropDown.GetKnowledgeList();
-                                    if (Model.Person.Degree == 1)
+                                    if (Model.Person.EnglishKnowledge == 1)
                                     {
 
-                                        <span>@tttt.ElementAt(0).Text</span>
-                                    }
-                                    else if (Model.Person.Degree == 2)
-                                    {
                                         <span>@tttt.ElementAt(1).Text</span>
                                     }
-                                    else if (Model.Person.Degree == 3)
+                                    else if (Model.Person.EnglishKnowledge == 2)
                                     {
                                         <span>@tttt.ElementAt(2).Text</span>
+                                    }
+                                    else if (Model.Person.EnglishKnowledge == 3)
+                                    {
+                                        <span>@tttt.ElementAt(3).Text</span>
+                                    }
+                                    else if (Model.Person.EnglishKnowledge == 0)
+                                    {
+                                        <span>@tttt.ElementAt(0).Text</span>
                                     }
 
                                 }

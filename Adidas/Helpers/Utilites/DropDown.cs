@@ -51,7 +51,8 @@ public class DropDown
     {
         List<SelectListItem> items = new List<SelectListItem>
             {
-                new SelectListItem{Text = "ابتدایی", Value = "1",Selected=true},
+             new SelectListItem{Text = "ندارم", Value = "0",Selected=true},
+                new SelectListItem{Text = "ابتدایی", Value = "1",Selected=false},
                 new SelectListItem{Text = "متوسط", Value = "2",Selected=false},
                 new SelectListItem{Text = "خوب", Value = "3",Selected=false}
 
