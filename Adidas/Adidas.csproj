@@ -269,6 +269,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\Info.cshtml" />
+    <Content Include="Views\Home\ListNewPerson.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helpers\HtmlHelpers\" />

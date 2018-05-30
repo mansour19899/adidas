@@ -129,6 +129,15 @@ namespace Adidas.Controllers
             return View(infoo);
         }
 
+        public ActionResult ListNewPerson()
+        {
+            PersonRepository blPerson = new PersonRepository();
+
+            var list = blPerson.Select();
+
+            return View(list);
+        }
+
 
     }
 }
