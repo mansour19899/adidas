@@ -98,45 +98,9 @@ namespace Adidas.Controllers
             //return View();
         }
 
-        public ActionResult Info(int id=5)
-        {
+       
 
-            PersonRepository blPerson = new PersonRepository();
-            JobRecordRepository blJob = new JobRecordRepository();
-            RelationShipRepository blRelation = new RelationShipRepository();
-
-            PersonInfo infoo = new PersonInfo();
-
-            var t = blPerson.Find(id);
-            var tt = blJob.Where(p => p.Person_FK == t.Id).ToList();
-            var ttt = blRelation.Where(p => p.Person_FK == t.Id).ToList();
-            infoo.Person = t;
-
-            if (tt.Count() > 0)
-                infoo.JobRecord1 = tt.ElementAt(0);
-            if (tt.Count() > 1)
-                infoo.JobRecord2 = tt.ElementAt(1);
-            if (tt.Count() > 2)
-                infoo.JobRecord3 = tt.ElementAt(2);
-
-            if (ttt.Count() > 0)
-                infoo.RelationShip1 = ttt.ElementAt(0);
-            if (ttt.Count() > 1)
-                infoo.RelationShip2 = ttt.ElementAt(1);
-            if (ttt.Count() > 2)
-                infoo.RelationShip3 = ttt.ElementAt(2);
-
-            return View(infoo);
-        }
-
-        public ActionResult ListNewPerson()
-        {
-            PersonRepository blPerson = new PersonRepository();
-
-            var list = blPerson.Select();
-
-            return View(list);
-        }
+      
 
 
     }

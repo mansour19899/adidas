@@ -16,7 +16,7 @@ namespace Adidas
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Info", id = UrlParameter.Optional }
+                defaults: new { controller = "Admin", action = "Info", id = UrlParameter.Optional }
             );
         }
     }
