@@ -36,8 +36,8 @@ namespace Adidas.Models.DomainModels
         [Display(Name = "تاریخ تولد ")]
           [Required(ErrorMessage ="لطفا  {0}   را وارد کنید")]
         public Nullable<System.DateTime> BirthDay { get; set; }
-        [DisplayName("وضعیت نظام وظیفه ")]
-        [Display(Name = "وضعیت نظام وظیفه ")]
+        [DisplayName("وضعیت نظام وظیفه")]
+        [Display(Name = "وضعیت نظام وظیفه")]
         public Nullable<byte> MilitaryService { get; set; }
         [DisplayName("وضعیت تاهل ")]
         [Display(Name = "وضعیت تاهل ")]
@@ -56,7 +56,7 @@ namespace Adidas.Models.DomainModels
         public string NationalCode { get; set; }
         [DisplayName("آدرس ")]
         [Display(Name = "آدرس ")]
-          [Required(ErrorMessage ="لطفا مقدار {0}  وارد کنید")]
+        [Required(ErrorMessage ="لطفا مقدار {0}  وارد کنید")]
         [MaxLength(200, ErrorMessage = "لطفا مقدار  {0} را بیشتر از {1} حرف وارد نکنید")]
         [DataType(DataType.MultilineText)]
         public string Address { get; set; }
@@ -150,6 +150,10 @@ namespace Adidas.Models.DomainModels
         [DisplayName("Checked ")]
         [Display(Name = "Checked ")]
         public bool Checked { get; set; }
+
+        [DisplayName("وضعیت")]
+        [Display(Name = "وضعیت")]
+        public byte Status { get; set; }
 
         //[NotMapped]
         //public int test { get; set; }

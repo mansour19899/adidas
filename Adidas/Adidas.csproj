@@ -163,6 +163,7 @@
     <Compile Include="Models\DomainModels\JobRecord.cs" />
     <Compile Include="Models\DomainModels\Person.cs" />
     <Compile Include="Models\DomainModels\RelationShip.cs" />
+    <Compile Include="Models\DomainModels\User.cs" />
     <Compile Include="Models\EntityModels\DateOfBirth.cs" />
     <Compile Include="Models\Enums\MilitaryStatus.cs" />
     <Compile Include="Models\Repositores\JobRecordRepository.cs" />

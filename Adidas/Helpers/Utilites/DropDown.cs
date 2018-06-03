@@ -216,5 +216,19 @@ public class DropDown
         return items;
     }
 
+    public static IEnumerable<SelectListItem> GetStatusList()
+    {
+        List<SelectListItem> items = new List<SelectListItem>
+            {
+                new SelectListItem{Text = "بررسی نشده", Value = "0",Selected=true},
+                new SelectListItem{Text = "رد صلاحیت", Value = "1",Selected=true},
+                new SelectListItem{Text = "تایید شد", Value = "2",Selected=false},
+                new SelectListItem{Text = "کارمند", Value = "3",Selected=false},
+                new SelectListItem{Text = "اخراج شد", Value = "4",Selected=false},
+                new SelectListItem{Text = "اتمام همکاری", Value = "5",Selected=false},
+            };
+        return items;
+    }
+
 
 }

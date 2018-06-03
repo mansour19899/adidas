@@ -61,6 +61,7 @@ namespace Adidas.Controllers
             per.Person.Tell = per.Person.Tell.ConvertNumbersToEnglish();
             //per.Person.SalaryExpection = per.Person.SalaryExpection.Replace(",", string.Empty).ConvertNumbersToEnglish();
             per.Person.SalaryExpection = per.Person.SalaryExpection.ConvertNumbersToEnglish();
+            per.Person.Status = 0;
 
             PersonRepository blPerson = new PersonRepository();
             JobRecordRepository blJob = new JobRecordRepository();
