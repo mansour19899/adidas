@@ -68,10 +68,10 @@
     </div>
     <div style="padding-top: 50px; padding-left: 20px; padding-right: 20px;" class="allcontentpage">
 
-        @using (Ajax.BeginForm("Register", "Home", new AjaxOptions { HttpMethod = "Post", Url = "/Home/Register" }))
-        {
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "myUploadForm" }))
+            {
 
-
+            Html.EnableClientValidation(true);
 
 
             <div class="panel panel-primary">
@@ -98,7 +98,7 @@
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.LastName, new { @class = "form-control" })
-                             
+
                             </p>
                         </div>
 
@@ -170,7 +170,7 @@
                         <div class="col-lg-3 col-md-4 col-sm-6">
                             <p class="_label">
                                 @Html.LabelFor(p => p.Person.Mobile)<span>*</span>
-                                @Html.ValidationMessageFor(p =>  p.Person.Mobile, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(p => p.Person.Mobile, "", new { @class = "text-danger" })
 
 
                             </p>
@@ -209,6 +209,14 @@
                             </p>
                             <p>
                                 @Html.TextBoxFor(p => p.Person.Address, new { @class = "form-control", style = " max-width: 2000px;" })
+                            </p>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                          <p class="_label">
+                                @Html.LabelFor(p => p.Person.image)<span>*</span>
+                                <input type="file" name="UploadImage" class="input-files" />
+                                @Html.ValidationMessageFor(p => p.Person.image, "", new { @class = "text-danger" })
                             </p>
                         </div>
 
@@ -575,7 +583,7 @@
 
                             <div class="col-lg-1 col-md-12">
                                 <div class="row" style="background-color:lightgray;height: 40px;position:relative;top:25px;margin-bottom: 40px;">
-                                    <div class="col-lg-12 text-center  " style="margin-top: 10px;padding: 0px;">@Html.Label("ردیف 1", new { @class = "_label" ,@id="moaref"})</div>
+                                    <div class="col-lg-12 text-center  " style="margin-top: 10px;padding: 0px;">@Html.Label("ردیف 1", new { @class = "_label", @id = "moaref" })</div>
                                 </div>
                             </div>
 
@@ -723,7 +731,12 @@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryajax")
-
+    <script src="~/Scripts/AjaxForm/jquery.form.js"></script>
     <script src="~/Scripts/Noty/jquery.noty.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myUploadForm').ajaxForm();
+        });
+    </script>
 </body>
 </html>

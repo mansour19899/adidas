@@ -154,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Filters\CodeMeli.cs" />
     <Compile Include="Helpers\Utilites\DropDown.cs" />
     <Compile Include="Helpers\Utilites\MessageBox.cs" />
     <Compile Include="Helpers\Utilites\MyPersianDate.cs" />
@@ -225,6 +226,8 @@
     <Content Include="Models\Repositores\adidas-wallpaper-hd-008.jpg" />
     <Content Include="Models\Repositores\adidaslogo.png" />
     <Content Include="Models\Repositores\sorbino.png" />
+    <Content Include="Scripts\AjaxForm\jquery.form.js" />
+    <Content Include="Scripts\AjaxForm\jquery.form.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

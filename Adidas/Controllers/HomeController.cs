@@ -50,11 +50,37 @@ namespace Adidas.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(PersonInfo per)
+        public ActionResult Register(PersonInfo per,HttpPostedFileBase UploadImage)
         {
             personId = 0;
             per.Person.BirthDay = (per.Date.Year + "/" + per.Date.Month + "/" + per.Date.Day).ToGeorgianDateTime();
             per.Person.RegPerson = DateTime.Now;
+
+
+
+            //------------------------------------------------Image----------------------------------------------------------
+            string AllowFormat = "image/jpeg,image/png,image/jpg,image/jpeg";
+            if(UploadImage!=null&&UploadImage.ContentLength>0)
+            {
+                if (!AllowFormat.Split(',').Contains(UploadImage.ContentType))
+                {
+                    return MessageBox.Show(" فرمت عکس صحیح نیست", MessageType.Warning);
+                }
+                else
+                {
+                    var yy = UploadImage.InputStream.ResizeImageByHeight(700, utilty.ImageComperssion.Normal);
+                   // UploadImage.InputStream.ResizeImageByHeight(500, @"E:\1\" + UploadImage.FileName);
+                    per.Person.image = yy;
+                }
+
+            }
+            else
+            {
+                return MessageBox.Show(" عکس انتخاب نشده است", MessageType.Warning);
+            }
+
+            //--------------------------------------------------------------------------------------------------------------------------
+
 
             per.Person.NationalCode = per.Person.NationalCode.ConvertNumbersToEnglish();
             per.Person.Mobile = per.Person.Mobile.ConvertNumbersToEnglish();
@@ -99,10 +125,42 @@ namespace Adidas.Controllers
             //return View();
         }
 
-       
 
-      
+        [HttpGet]
+        public ActionResult Test(int id=5)
+        {
+
+
+
+            PersonRepository blPerson = new PersonRepository();
+            JobRecordRepository blJob = new JobRecordRepository();
+            RelationShipRepository blRelation = new RelationShipRepository();
+
+            PersonInfo infoo = new PersonInfo();
+
+            var t = blPerson.Find(id);
+            var tt = blJob.Where(p => p.Person_FK == t.Id).ToList();
+            var ttt = blRelation.Where(p => p.Person_FK == t.Id).ToList();
+            infoo.Person = t;
+
+            if (tt.Count() > 0)
+                infoo.JobRecord1 = tt.ElementAt(0);
+            if (tt.Count() > 1)
+                infoo.JobRecord2 = tt.ElementAt(1);
+            if (tt.Count() > 2)
+                infoo.JobRecord3 = tt.ElementAt(2);
+
+            if (ttt.Count() > 0)
+                infoo.RelationShip1 = ttt.ElementAt(0);
+            if (ttt.Count() > 1)
+                infoo.RelationShip2 = ttt.ElementAt(1);
+            if (ttt.Count() > 2)
+                infoo.RelationShip3 = ttt.ElementAt(2);
+
+            return View(t);
+        }
+    }
+
 
 
     }
-}
