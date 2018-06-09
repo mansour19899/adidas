@@ -38,6 +38,7 @@ namespace Adidas.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Register()
         {
             DateOfBirth date = new DateOfBirth();

@@ -74,6 +74,7 @@ namespace Adidas.Controllers
            
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult ListCheckedPerson()
         {
             PersonRepository blPerson = new PersonRepository();

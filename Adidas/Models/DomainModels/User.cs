@@ -16,6 +16,8 @@ namespace Adidas.Models.DomainModels
 
         public string Password { get; set; }
 
+        public string Role { get; set; }
+
         public bool Enabled { get; set; }
 
         public DateTime Expired { get; set; }
